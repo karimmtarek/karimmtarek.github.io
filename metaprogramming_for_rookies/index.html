@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Metaprogramming for Rookies</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Karim Tarek">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style type="text/css">
+			.reveal pre code { max-height: 460px;  }
+		</style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Metaprogramming</h1>
+					<h2>For Rookies</h2>
+					<p>
+						<small><a href="http://www.gotimeliner.com/karim-tarek">Karim Tarek</a> / <a href="http://twitter.com/karim_tarek">@karim_tarek</a></small>
+					</p>
+				</section>
+
+				<section>
+				<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;to become a Ruby Jedi, you have to master the art of metaprogramming.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is metaprograming?</h2>
+						<p>Is it ...</p>
+					</section>
+
+					<section>
+						<img src="img/magic.gif" alt="MAGIC!" width="75%">
+					</section>
+
+					<!-- <section>
+						<h3>Unfortunately it is not.</h3>
+
+						<h4><span class="fragment">Yet...</span><span class="fragment"> It is definitely magical.</span></h4>
+					</section> -->
+
+					<section>
+						<h3>Wikipedia's definition:</h3>
+						<blockquote class="fragment" cite="https://en.wikipedia.org/wiki/Metaprogramming">
+							&ldquo;Metaprogramming is the writing of computer programs with the ability to treat programs as their data. It means that a program could be designed to read, generate, analyse or transform other programs, and even modify itself while running.&rdquo;
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>So, basically</h3>
+						<h2 class="fragment">Metaprogramming is...</h2>
+						<h2 class="fragment">code that writes code</h2>
+					</section>
+				</section>
+
+				<section>
+					<h3>The purpose of this talk:</h3>
+					<ol>
+						<li class="fragment">How to create/test/install gems using bundler.</li>
+						<li class="fragment">Introduction to a few powerfull techniques that will help you DRY your code.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Let's create a gem</h3>
+
+					<pre><code class="hljs" data-trim contenteditable>
+$ gem install bundler
+$ bundle gem metaprogramming_example --test
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Let's have a look</h3>
+
+					<pre><code class="hljs" data-trim contenteditable>
+$ cd metaprogramming_example
+$ rake -T
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Scenario</h2>
+					<ol>
+						<li class="fragment">We are working with a legacy system that provides us with the data that we need, and this system is untouchable.</li>
+						<li class="fragment">The task is to create a report out of this data</li>
+						<li class="fragment">We've been provided with some code as a starting point</li>
+						<li class="fragment">Our task is to improve it</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>The code</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+class Computer
+  attr_reader :id, :data_source
+
+  def initialize(computer_id, data_source)
+    @id = computer_id
+    @data_source = data_source
+  end
+
+  def mouse
+    info = data_source.get_mouse_info(id)
+    price = data_source.get_mouse_price(id)
+    "Mouse: ​#{info}​ ($​#{price}​)"
+  end
+
+  def cpu
+    info = data_source.get_cpu_info(id)
+    price = data_source.get_cpu_price(id)
+    "CPU: ​#{info}​ ($​#{price}​)"
+  end
+  ...
+end
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>V1(Step 1/3): Dynamic Dispatch</h2>
+				</section>
+
+				<section>
+					<h3>V1(Step 1/3): Dynamic Dispatch</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+class Computer
+  attr_reader :id, :data_source
+
+  def initialize(computer_id, data_source)
+    @id = computer_id
+    @data_source = data_source
+  end
+
+  def mouse
+    component :mouse
+  end
+
+  ...
+
+  def component(name)
+    info = data_source.send("get_#{name}_info", id)
+    price = data_source.send("get_#{name}_price", id)
+    "#{name.capitalize}: ​#{info}​ ($​#{price}​)"
+  end
+end
+					</code></pre>
+				</section>
+
+
+				<section>
+					<h3>V1(Step 2/3): Dynamic Method</h3>
+				</section>
+
+				<section>
+					<h3>V1(Step 2/3): Dynamic Method</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+class Computer
+  attr_reader :id, :data_source
+
+  def initialize(computer_id, data_source)
+    @id = computer_id
+    @data_source = data_source
+  end
+
+  def self.define_component(name)
+    define_method(name) do
+      info = data_source.send("get_#{name}_info", id)
+      price = data_source.send("get_#{name}_price", id)
+      "#{name.capitalize}: ​#{info}​ ($​#{price}​)"
+    end
+  end
+
+  define_component :mouse
+  ...
+end
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>V1(Step 3/3): Dynamic Method + Introspection</h3>
+				</section>
+
+				<section>
+					<h3>V1(Step 3/3): Dynamic Method + Introspection</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+class Computer
+  attr_reader :id, :data_source
+
+  def initialize(computer_id, data_source)
+    @id = computer_id
+    @data_source = data_source
+    data_source.methods.grep(/^get_(.*)_info$/) { Computer.define_component $1 }
+  end
+
+  def self.define_component(name)
+    define_method(name) do
+      info = data_source.send("get_#{name}_info", id)
+      price = data_source.send("get_#{name}_price", id)
+      "#{name.capitalize}: ​#{info}​ ($​#{price}​)"
+    end
+  end
+end
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Flashback</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+class Computer
+  attr_reader :id, :data_source
+
+  def initialize(computer_id, data_source)
+    @id = computer_id
+    @data_source = data_source
+  end
+
+  def mouse
+    info = data_source.get_mouse_info(id)
+    price = data_source.get_mouse_price(id)
+    "Mouse: ​#{info}​ ($​#{price}​)"
+  end
+
+  def cpu
+    info = data_source.get_cpu_info(id)
+    price = data_source.get_cpu_price(id)
+    "CPU: ​#{info}​ ($​#{price}​)"
+  end
+  ...
+end
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>V2: Ghost Method</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+class Computer
+  attr_reader :id, :data_source
+
+  def initialize(computer_id, data_source)
+    @id = computer_id
+    @data_source = data_source
+  end
+
+  def method_missing(name)
+    super unless respond_to? name
+    info = data_source.send("get_#{name}_info", id)
+    price = data_source.send("get_#{name}_price", id)
+    "#{name.capitalize}: ​#{info}​ ($​#{price}​)"
+  end
+
+  def respond_to_missing?(method, include_private = false)
+    data_source.respond_to?("get_#{method}_info") || super
+  end
+end
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Open Class</h3>
+					<pre><code class="hljs" data-trim contenteditable>
+> irb
+> 'karim'.upcase?
+NoMethodError: undefined method `upcase?' for "karim":String
+
+> def upcase?(string)
+>   string == string.upcase
+> end
+=> :upcase?
+
+> upcase? 'karim'
+=> false
+
+> upcase? 'K'
+=> true
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code class="hljs" data-trim contenteditable>
+class String
+  def upcase?
+    self == self.upcase
+  end
+end
+					</code></pre>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
