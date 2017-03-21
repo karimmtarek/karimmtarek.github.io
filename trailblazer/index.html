@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Structuring your Rails app with trailblazer – Karim Tarek @ KW Ruby Developers</title>
+
+		<meta name="description" content="Structuring your Rails app with trailblazer">
+		<meta name="author" content="Karim Tarek">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style type="text/css">
+			.reveal pre code { max-height: 460px;  }
+		</style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+          <h4>An Introduction to</h4>
+					<h1>Trailblazer</h1>
+					<h4>A High-Level Architecture For The Web</h4>
+          <h5><a href="http://kwruby.ca">KW Ruby</a> – March 21<small>st</small>, 2017</h5>
+          <hr>
+					<p>
+            <a href="http://www.gotimeliner.com/karim-tarek">Karim Tarek</a><br>
+            <small>Freelance web developer</small>
+					</p>
+          <p>
+            <small><a href="http://twitter.com/karim_tarek">@karim_tarek</a> / <a href="https://github.com/karimmtarek">github.com/karimmtarek</a></small>
+          </p>
+				</section>
+
+        <section>
+          <h2>Let's talk about</h2>
+          <h1>
+            <span class="fragment">M</span>
+            <span class="fragment">V</span>
+            <span class="fragment">C</span>
+          </h1>
+        </section>
+
+        <section>
+          <h1>What is it?</h1>
+          <blockquote class="fragment" cite="https://en.wikipedia.org/wiki/Model–view–controller">
+            &ldquo;Model–View–Controller (MVC) is a software architectural pattern for implementing user interfaces on computers.&rdquo;
+          </blockquote>
+        </section>
+
+        <section>
+          <h1>MVC</h1>
+          <blockquote class="fragment" cite="https://en.wikipedia.org/wiki/Model–view–controller">
+            &ldquo;It divides a given application into three interconnected parts in order to separate internal representations of information from the ways that information is presented to and accepted from the user.&rdquo;
+          </blockquote>
+        </section>
+
+        <section>
+          <h1>MVC</h1>
+          <blockquote class="fragment" cite="https://en.wikipedia.org/wiki/Model–view–controller">
+            &ldquo;The MVC design pattern decouples these major components allowing for efficient code reuse and parallel development.&rdquo;
+          </blockquote>
+        </section>
+
+        <section>
+          <h2>MVC in action</h2>
+          <img class="fragment" src="img/mvc-d.png" alt="MVC" width="100%">
+        </section>
+
+        <section>
+          <h1>So basically...</h1>
+          <h2>
+            <span class="fragment">MVC</span>
+            <span class="fragment">is</span>
+          </h2>
+          <img class="fragment" src="img/awesome.gif" alt="Awesome!" width="100%">
+        </section>
+
+        <section>
+          <h1>Is MVC...</h1>
+          <h2>
+            <span class="fragment">the solution</span>
+            <span class="fragment">for</span>
+            <span class="fragment">all</span>
+            <span class="fragment">things?</span>
+          </h2>
+          <img class="fragment" src="img/nope.gif" alt="No!" width="70%">
+        </section>
+
+        <section>
+          <h2>So the reality is</h2>
+          <blockquote class="fragment" cite="https://leanpub.com/trailblazer">
+            &ldquo;For every Rails project, there is exactly two outcomes. Either someone in the team’s an experienced architect and leads the software to an advanced design with service layer, view components, maybe forms, and so on. Or, and that’s the classic way, the project strictly follows the Rails Way and will end up as a code disaster.&rdquo;
+          </blockquote>
+        </section>
+
+        <section>
+          <h3>People tried to fix that...</h3>
+          <ul>
+            <li class="fragment"><a href="https://medium.com/@fbzga/clean-architecture-in-ruby-7eb3cd0fc145#.yc0l8z76g">Clean Architecture</a></li>
+            <li class="fragment"><a href="https://medium.com/@vsavkin/hexagonal-architecture-for-rails-developers-8b1fee64a613#.frqwo55gi">Hexagonal Architecture</a></li>
+            <li class="fragment"><a href="http://teotti.com/component-based-rails-architecture-primer/">Component Based Architecture</a></li>
+            <li class="fragment"><a href="https://devblast.com/c/modular-rails">Modular Architecture</a></li>
+            <li class="fragment"><a href="https://github.com/trailblazer/trailblazer">Trailblazer</a></li>
+            <li class="fragment">And more...</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="img/splash-page.png" alt="Trailblazer!" width="100%">
+        </section>
+
+        <section>
+          <h2>Trailblazer</h2>
+          <p>Is a thin layer on top of Rails and brings a high-level application architecture, decent encapsulation and a new code structure. Here are the main features.</p>
+          <ul>
+            <li class="fragment">Logicless models solely focusing on persistence.</li>
+            <li class="fragment">Skinny controllers working as endpoints, only.</li>
+            <li class="fragment">Domain objects for your business logic, known as operations.</li>
+            <li class="fragment">Form objects for deserialisation and validation.</li>
+            <li class="fragment">View models to introduce a widget architecture.</li>
+            <li class="fragment">Representers that parse and render documents for APIs.</li>
+            <li class="fragment">Twin objects for decorating models.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>What does that mean for your models?</h3>
+          <ul>
+            <li class="fragment">Acts as a persistence layer only</li>
+            <li class="fragment">Has only associations and scopes code</li>
+            <li class="fragment">no validation</li>
+            <li class="fragment">no callbacks</li>
+            <li class="fragment">no business logic</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Views?</h2>
+          <ul>
+            <li class="fragment">Logicless</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Controllers?</h2>
+          <ul>
+            <li class="fragment">Only despatch to operations (Every controller action despatch to an operation)</li>
+            <li class="fragment">HTTP specific code (e.g. session code or redirects)</li>
+            <li class="fragment">No business logic</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Trailblazer</h2>
+          <p>Has a set of Gems to help with implementing these patterns</p>
+          <img class="fragment" src="img/trb-gems.png" alt="Trailblazer gems" width="100%">
+        </section>
+
+        <section>
+          <h2>Trailblazer</h2>
+          <p>In theory plays nice will all Ruby web frameworks</p>
+          <img class="fragment" src="img/frameworks.png" alt="Ruby frameworks" width="100%">
+          <p class="fragment">Trailblazer demo apps for <a href="https://github.com/apotonick/gemgem-trbrb">Rilas</a>, <a href="https://github.com/apotonick/gemgem-grape">Grape</a>, and <a href="https://github.com/apotonick/gemgem-sinatra">Sinatra</a></p>
+        </section>
+
+        <section>
+          <h2>Trailblazer</h2>
+          <img class="fragment" src="img/tbr-dir-structure-2.png" alt="Trailblazer directory structure">
+          <blockquote class="fragment" cite="hhttp://trailblazer.to">
+            Finally know where to put your code!
+          </blockquote>
+        </section>
+
+        <section>
+          <h2>Operation</h2>
+          <!-- <img class="fragment" src="img/operation.png" alt="Trailblazer operation" width="50%"> -->
+          <blockquote class="fragment" cite="hhttp://trailblazer.to">
+            Technically, an operation embraces and orchestrates all business logic between the controller dispatch and the persistence layer.
+          </blockquote>
+        </section>
+
+        <section>
+          <h2>Operation</h2>
+          <img class="fragment" src="img/operation.png" alt="Trailblazer operation">
+        </section>
+
+        <section>
+          <h2>Let's refactor some code</h2>
+          <img class="fragment" src="img/code.gif" alt="code" width="80%">
+        </section>
+
+        <section>
+          Accounts Controller (the Rails way)
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+class AccountsController < ApplicationController
+  def new
+    @account = Account.new
+  end
+
+  def create
+    @account = Account.new(milestone_params)
+    @account.user = current_user
+
+    if @account.save
+      redirect_to @account, notice: 'Account created!'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def account_params
+    params.require(:account).permit(:name, :type)
+  end
+end
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/controllers/accounts_controller.rb</pre>
+        </section>
+
+        <section>
+          Accounts Model (the Rails way)
+
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+class Account < ActiveRecord::Base
+  belongs_to :user
+
+  validates_presence_of :name, :user
+end
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/models/account.rb</pre>
+        </section>
+
+        <section>
+          Accounts View (the Rails way)
+
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+<h1>New Account</h1>
+
+<%= form_for(@account) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', things_path %>
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/views/accounts/new.html.erb</pre>
+        </section>
+
+        <section>
+          Accounts Controller (Trailblazer)
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+class AccountController < ApplicationController
+  def new
+    form Account::Create
+  end
+
+  def create
+    run Account::Create do |op|
+      return redirect_to op.model, notice: 'Account created!'
+    end
+    render :new
+  end
+
+  private
+
+  def process_params!
+    params.merge!(current_user: current_user)
+  end
+end
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/controllers/accounts_controller.rb</pre>
+        </section>
+
+<section>
+          Accounts Model (Trailblazer)
+
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+class Account < ActiveRecord::Base
+  belongs_to :user
+end
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/models/account.rb</pre>
+        </section>
+
+        <section>
+          Account Create Operation (Trailblazer)
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+class Account < ActiveRecord::Base
+  class Create < Trailblazer::Operation
+    include Model
+    include Trailblazer::Operation::Policy
+
+    model Account, :create
+    policy Account::Policy, :create?
+
+    contract do
+      property :name
+      property :user
+      property :type
+
+      validates :name, presence: true
+      validates :user, presence: true
+    end
+
+    def process(params)
+      @model.user = params[:current_user]
+
+      validate(params[:account]) do |f|
+        f.save
+      end
+    end
+  end
+end
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/concepts/account/operation/create.rb</pre>
+        </section>
+
+        <section>
+          Account Create Policy (Trailblazer)
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+class Account::Policy
+  attr_reader :user, :account
+
+  def initializer(user, account)
+    @user, @account = user, account
+  end
+
+  def create?
+    user.present?
+  end
+end
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/concepts/account/policy.rb</pre>
+        </section>
+
+        <section>
+          Accounts View (Trailblazer)
+
+          <pre>
+            <code class="hljs" data-trim contenteditable>
+<h1>New Account</h1>
+
+<%= form_for(@form) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', things_path %>
+            </code>
+          </pre>
+          <pre style="text-align: center">/app/views/accounts/new.html.erb</pre>
+        </section>
+
+        <section>
+          <h3>Why Trailblazer?</h3>
+          <ol>
+            <li class="fragment">Forces you to do the right things, until you learn them (especially for rookies)</li>
+            <li class="fragment">Faster onboarding for new developers</li>
+            <li class="fragment">Hard to know where to put new logic</li>
+            <li class="fragment">Big classes with many responsibilities</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Trailblazer Resources</h3>
+          <ul>
+            <li class="fragment"><a href="http://trailblazer.to">http://trailblazer.to</a></li>
+            <li class="fragment"><a href="https://github.com/trailblazer">https://github.com/trailblazer</a></li>
+            <li class="fragment"><a href="https://gitter.im/trailblazer/chat">https://gitter.im/trailblazer/chat</a></li>
+            <li class="fragment"><a href="https://leanpub.com/trailblazer">https://leanpub.com/trailblazer</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+        </section>
+
+      <!-- SLIDES END HERE -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
