@@ -1,0 +1,17 @@
+<article class="flex flex-col items-start justify-between">
+  <div class="group relative">
+    <div class="flex justify-between mb-2">
+      <h3 class="text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300"><%= data.name %>
+      </h3>
+      <span class="inline-flex items-center rounded-full bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300"><%= data.category %></span>
+    </div>
+    <span class="text-sm text-gray-500 dark:text-gray-400"><%= data.subtitle %></span>
+    <p class="mt-5 text-sm/6 text-gray-600 dark:text-gray-400"><%= data.body %></p>
+    <div class="mt-5">
+
+      <% data.tags.each do |tag| %>
+        <span class="inline-flex items-center rounded-full bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300"><%= tag %></span>
+      <% end %>
+    </div>
+  </div>
+</article>

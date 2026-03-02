@@ -1,0 +1,232 @@
+# Portfolio Content
+# All editable content for karimtarek.com. Edit this file, then apply changes to templates.
+
+nav:
+  - Work
+  - How I Help
+  - About
+  - Contact
+
+hero:
+  label: "Available for contract & retainer work"
+  headline: "Your brand deserves a developer who gets e-commerce"
+  subheading: "I'm Karim - a fullstack Shopify Plus developer who's built custom storefronts for 20+ DTC brands including Timbuk2, UrbanStems, Vuori, and Vegamour. I help growing brands ship faster, convert better, and stop fighting their theme."
+  cta_primary: "Let's Talk"
+  cta_secondary: "See My Work"
+
+stats:
+  - number: "20+"
+    label: "DTC Brand Storefronts"
+  - number: "1,300+"
+    label: "Production Commits"
+  - number: "17+"
+    label: "Years in Web Dev"
+  - number: "1"
+    label: "Published Shopify App"
+
+projects:
+  section_label: "Shopify Plus Projects"
+  section_title: "Storefronts built to convert, not just look good"
+  section_description: "Custom Shopify Plus builds for real brands with real complexity - product configurators, third-party integrations, and pages that actually perform."
+  list:
+    - name: "Timbuk2"
+      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      category: "BAGS & ACCESSORIES"
+      body: "Timbuk2 is an iconic bag brand with a loyal customer base and a complex product catalog that demanded more than an off-the-shelf theme. At PIVOT, I built and contributed to a fully custom Shopify Plus storefront tailored to their brand experience and performance standards. The work included custom Liquid templates, pixel-perfect responsive implementation, and front-end features supporting their product configurator and conversion goals. I also implemented structured data schemas and integrated their full marketing and analytics stack."
+      tags:
+        - "Custom Liquid Theme"
+        - "Klevu Search"
+        - "Elevar Analytics"
+        - "Structured Data"
+        - "Help Center"
+        - "142 Commits"
+
+    - name: "UrbanStems"
+      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      category: "GIFTING & SUBSCRIPTIONS"
+      body: "UrbanStems is a modern flower and gifting brand with subscription complexity, seasonal campaigns, and a customer experience that needs to feel premium at every touchpoint. At PIVOT, I built custom product tile systems for their PLP, integrated and styled Yotpo review widgets across the PDP, implemented structured data for SEO (Organization, Product, Article schemas), and developed landing pages for their rewards, referral, and corporate gifting programs. I also built subscription landing page templates and handled video integration for hero sections."
+      tags:
+        - "Yotpo Reviews"
+        - "Structured Data"
+        - "Subscription LPs"
+        - "Rewards & Referral Pages"
+        - "Corporate Gifting Template"
+        - "95 Commits"
+
+    - name: "X-Chair"
+      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      category: "FURNITURE & ERGONOMICS"
+      body: "X-Chair sells premium ergonomic chairs with a product configurator that lets customers build custom combinations - one of the more complex PDP experiences in Shopify Plus. At PIVOT, I was deeply embedded in this project with 328 commits over 18 months. I styled the homepage to match the X-Chair design system, injected Affirm buy-now-pay-later messaging across PDP, cart, and PLP, integrated Klevu for collection search and filtering, implemented Yotpo for reviews and UGC, set up Elevar scripts for checkout tracking, and built corporate pages, help centers, store locators, and warranty forms from scratch."
+      tags:
+        - "Product Configurator"
+        - "Affirm BNPL"
+        - "Klevu Search"
+        - "Yotpo Reviews & UGC"
+        - "Elevar"
+        - "Salesforce"
+        - "328 Commits"
+
+    - name: "Celluma"
+      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      category: "HEALTH & WELLNESS"
+      body: "Celluma makes FDA-cleared LED light therapy devices - a product that requires a content-heavy storefront with educational pages, before-and-after results, and a professional vs. consumer audience split. At PIVOT, I contributed 209 commits building content page templates, blog filtering with author views, Rebuy cart integration for free gift logic and variant backorder messaging, Klaviyo modal and form integrations with GA event tracking, and extensive accessibility improvements including focus traps, alt attributes, and translations. I also built theme settings to scope changes between their US and international stores."
+      tags:
+        - "Rebuy Smart Cart"
+        - "Klaviyo Forms & Modals"
+        - "GA Event Tracking"
+        - "Accessibility"
+        - "Multi-store Settings"
+        - "209 Commits"
+
+    - name: "Vuori"
+      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      category: "ATHLEISURE & APPAREL"
+      body: "Vuori is one of the fastest-growing athleisure brands in the US, known for a brand experience that's as polished as their product. At PIVOT, I built the Dreamknit collection template with a custom hero banner system, developed alternate states for their lifestyle image components across 33 files, created their careers page template, and built a size chart system for the Clae shoe collaboration. I also implemented a system to make Dreamknit-specific assets available across any page template with a Dreamknit suffix - the kind of brand-specific architecture that keeps content teams moving without developer bottlenecks."
+      tags:
+        - "Dreamknit Templates"
+        - "Lifestyle Image Components"
+        - "Size Chart System"
+        - "Dynamic Asset Loading"
+        - "Careers Template"
+        - "59 Commits"
+
+more_brands:
+  section_label: "More Brands I've Built For at PIVOT"
+  section_description: "Custom Shopify Plus storefronts with third-party integrations, custom templates, and ongoing development."
+  brands:
+    - "Mavix"
+    - "GrooveLife"
+    - "Ironwear"
+    - "MNML"
+    - "Minky Couture"
+    - "Recess Pickleball"
+    - "Vegamour"
+    - "HydroPeptide"
+    - "MadeByNacho"
+    - "Method Race Wheels"
+    - "Pelagic"
+    - "High Fashion Home"
+    - "Olga"
+    - "Rye"
+    - "iGroom"
+    - "A New Earth Project"
+    - "INA Labs"
+
+beyond_client_work:
+  section_label: "Beyond Client Work"
+  section_title: "A published app and a viral campaign"
+  section_description: "Not everything I build is for a client. These show what I do when I'm the one making the decisions."
+  projects:
+    - name: "FieldsRaven"
+      subtitle: "My Own Shopify App - Live on the Shopify App Store"
+      category: "OWN PRODUCT"
+      body: "Most Shopify developers customize themes. I built and shipped a product. FieldsRaven extends Shopify's Metafields API to the storefront through an app proxy, enabling merchants to collect data on the fly and personalize their theme - functionality Shopify doesn't expose natively. Built with Ruby on Rails, I handle the full lifecycle: ideation, architecture, development, deployment, App Store review, and merchant support. Having a live app gives me platform depth that's hard to get from client work alone - I understand the API constraints, the review process, and how merchants actually use extended functionality in the real world."
+      tags:
+        - "Ruby on Rails"
+        - "Shopify App Store"
+        - "Metafields API"
+        - "App Proxy"
+        - "Full Product Lifecycle"
+
+    - name: "Keurig Rivo Launch Campaign"
+      subtitle: "Contest Web App - Built at Le Site (E-commerce Agency, Montreal)"
+      category: "CAMPAIGN BUILD"
+      body: "For the Canadian launch of the Keurig Rivo espresso machine, I built a contest web app at Le Site, an e-commerce agency in Montreal. Delivered in 3-4 weeks from brief to launch, the app attracted hundreds of thousands of visitors and generated over 30,000 social shares. I also automated the campaign's email build process, cutting production time from 8 hours to 2 hours using Middleman and the Google Docs API. This predates my Shopify focus, but it shows I can build high-traffic, time-sensitive products end to end - exactly the muscle that matters for seasonal launches and campaign-driven brands."
+      tags:
+        - "Web Application"
+        - "High Traffic"
+        - "30K+ Social Shares"
+        - "3-4 Week Turnaround"
+        - "Process Automation"
+
+how_i_help:
+  section_label: "How I Help"
+  section_title: "The stuff your theme can't do out of the box"
+  body: "I spent nearly 3 years building custom Shopify Plus storefronts at PIVOT, a top-tier Shopify Plus agency, working across 20+ brands. Now I work directly with DTC brands - the same enterprise-quality development, without the agency markup or communication layers. I'm available for ongoing retainers, project-based work, or a hybrid of both."
+  checklist:
+    - "Custom PDP experiences: configurators, bundles, size charts, sticky ATCs"
+    - "Third-party integrations that actually work (Klaviyo, Yotpo, Rebuy, Klevu, Elevar)"
+    - "SEO-ready structured data and performance optimization"
+    - "Landing pages and campaign templates on tight turnarounds"
+    - "Bug fixes, theme cleanup, and the backlog your team hasn't gotten to"
+
+testimonials:
+  section_label: "What People Say"
+  section_title: "From the people I've worked with"
+  quotes:
+    - name: "Mary-Kevin Stuart"
+      role: "Entrepreneur - Shopify Store Owner"
+      quote: "I recently launched my Shopify store and I hired Karim to help with the development of the site. Karim did an amazing job with all of the projects I gave him and he exceeded all of my expectations. I was particularly impressed with Karim's communication, timeliness, receptivity to feedback, and attention to detail. He was very open to change and communicative about creative approaches we could take and the potential impact to the original estimate. I wholeheartedly recommend Karim."
+
+    - name: "Matt Magi"
+      role: "Co-Founder, Voltage New Media"
+      quote: "Karim worked with us as a contractor for ~2 years. I was always impressed with his punctuality, organization, problem solving and ability to think outside the box. He was never afraid to push back and make suggestions which would always benefit the projects we worked on together."
+
+    - name: "James Corr"
+      role: "Growth Consultant - Product & GTM Expert"
+      quote: "Karim is a passionate developer that strives to better himself and improve his craft. He has helped OnlyGrowth with front-end development for Shopify sites. Karim is very responsive and communicates when he will be away or needs an extension. Unlike a lot of developers, Karim is also fairly good with estimating tasks and QA'ing his work prior to saying it is done."
+
+integrations:
+  section_label: "Integrations I Work With"
+  section_title: "Your marketing stack, wired up properly"
+  section_description: "These aren't just logos on a slide - I've implemented each of these across multiple production storefronts."
+  items:
+    - name: "Klaviyo"
+      description: "Email/SMS flows, back-in-stock alerts, custom form integrations, event tracking"
+    - name: "Yotpo"
+      description: "Reviews, UGC galleries, star ratings, custom widget styling"
+    - name: "Rebuy"
+      description: "Smart cart, cross-sells, personalized recommendations, free gift logic"
+    - name: "Klevu"
+      description: "Search, collection filtering, merchandising, analytics integration"
+    - name: "Elevar"
+      description: "Server-side tracking, data layer setup, conversion accuracy"
+    - name: "Affirm"
+      description: "Buy-now-pay-later messaging on PDP, cart, mini-cart, and PLP"
+
+technical_stack:
+  section_label: "Technical Stack"
+  section_title: "What I work with daily"
+  groups:
+    - name: "Shopify"
+      items:
+        - "Liquid Templating"
+        - "Shopify CLI"
+        - "REST & GraphQL APIs"
+        - "Theme Architecture"
+        - "Metafields & Metaobjects"
+        - "Checkout Customization"
+    - name: "Frontend"
+      items:
+        - "JavaScript (ES6+)"
+        - "HTML5 / CSS3"
+        - "AlpineJS"
+        - "Vue.js / React"
+        - "Responsive Design"
+        - "Performance Optimization"
+    - name: "Backend & Tools"
+      items:
+        - "Ruby on Rails"
+        - "Git / GitHub"
+        - "Structured Data / SEO"
+        - "Shopify App Development"
+        - "A/B Testing Templates"
+        - "Accessibility"
+
+about:
+  section_label: "About"
+  section_title: "A bit more context"
+  paragraphs:
+    - "I'm Karim, a fullstack Shopify developer based in Victoria, BC. I've been building for the web for over 17 years, with the last 9 focused on Shopify. Most recently I spent nearly 3 years as a Senior Frontend Developer at PIVOT, a Shopify Plus Agency Partner, where I shipped custom storefronts for 20+ enterprise DTC brands."
+    - "I've also built and published FieldsRaven, a Shopify app on the App Store that extends the Metafields API - so I understand the platform from the app side too, not just the theme side."
+    - "Before Shopify, I worked at the ALDO Group, built a viral web app for Keurig's Canadian launch, and spent time at Doctors Without Borders managing their UAE web presence. I hold a B.Sc. in Computer Engineering and a Project Management certificate from McGill."
+    - "I work best on a part-time or retainer basis - consistent enough to understand your brand deeply, flexible enough to not be overhead you don't need. I'm remote-first and have been for years."
+
+contact:
+  section_label: "Get in Touch"
+  section_title: "Let's talk about your store"
+  section_description: "Whether it's a custom build, an integration that's driving you crazy, or ongoing development support - I'd love to hear what you're working on."
+  email: "..."
+  linkedin_label: "LinkedIn"
+  linkedin_url: "https://linkedin.com/in/karimtarek"
+  phone: "519-781-8875"

@@ -4,12 +4,19 @@
     <%= render "head", metadata: site.metadata, title: data.title %>
   </head>
   <body class="<%= data.layout %> <%= data.page_class %>">
-    <%= render Shared::Navbar.new(metadata: site.metadata, resource: resource) %>
+    <%#= render Shared::Navbar.new(metadata: site.metadata, resource: resource) %>
 
     <main>
-      <%= yield %>
+      <%#= yield %>
+      <%#= render "hero", data: site.data.content %>
+      <%= render "nav", data: site.data.content %>
+      <%= render "header-alt", data: site.data.content %>
+      <%#= render "header", data: site.data.content %>
+      <%= render "projects", data: site.data.content %>
+      <%= render "services", data: site.data.content %>
+      <%= render "testimonials", data: site.data.content %>
     </main>
 
-    <%= render "footer", metadata: site.metadata %>
+    <%= render "footer", data: site.data.content %>
   </body>
 </html>

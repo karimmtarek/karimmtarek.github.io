@@ -1,0 +1,32 @@
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+      <p class="text-base/7 font-semibold text-indigo-600"><%= site.data.content.hero_tagline %></p>
+      <h1 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"><%= site.data.content.hero_title %></h1>
+      <div class="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base/7 text-gray-600 lg:max-w-none lg:grid-cols-2">
+        <div>
+          <p><%= data.hero_description %></p>
+        </div>
+
+      </div>
+      <dl class="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-4">
+        <div class="flex flex-col-reverse gap-y-3 border-l border-gray-200 pl-6">
+          <dt class="text-base/7 text-gray-600"><%= data.hero_stat_1_text %></dt>
+          <dd class="text-3xl font-semibold tracking-tight text-gray-900"><%= data.hero_stat_1_number %></dd>
+        </div>
+        <div class="flex flex-col-reverse gap-y-3 border-l border-gray-200 pl-6">
+          <dt class="text-base/7 text-gray-600"><%= data.hero_stat_2_text %></dt>
+          <dd class="text-3xl font-semibold tracking-tight text-gray-900"><%= data.hero_stat_2_number %></dd>
+        </div>
+        <div class="flex flex-col-reverse gap-y-3 border-l border-gray-200 pl-6">
+          <dt class="text-base/7 text-gray-600"><%= data.hero_stat_3_text %></dt>
+          <dd class="text-3xl font-semibold tracking-tight text-gray-900"><%= data.hero_stat_3_number %></dd>
+        </div>
+        <div class="flex flex-col-reverse gap-y-3 border-l border-gray-200 pl-6">
+          <dt class="text-base/7 text-gray-600"><%= data.hero_stat_4_text %></dt>
+          <dd class="text-3xl font-semibold tracking-tight text-gray-900"><%= data.hero_stat_4_number %></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
