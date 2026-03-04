@@ -4,8 +4,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.metadata.myvariable }}.
 
-title: Your awesome title
-tagline: Karim Tarek - Fullstack Shopify Plus Developer
+title: Karim Tarek
+tagline: Fullstack Shopify Plus Developer
 email: karim@karimtarek.com
 description: >-
-  Fullstack Shopify developer with 17+ years in web dev and 20+ custom Shopify Plus storefronts built at PIVOT for brands like Timbuk2, UrbanStems, and Vuori. Available for contract and retainer work.
+  Fullstack Shopify Plus developer with 17+ years in web dev and 20+ custom Shopify Plus storefronts built at PIVOT for brands like Timbuk2, UrbanStems, and Vuori. Available for contract and retainer work.
