@@ -51,6 +51,8 @@
 
 <script>
   const nav = document.getElementById('site-nav');
+
+  // Scroll-linked nav background
   const onScroll = () => {
     if (window.scrollY > 0) {
       nav.classList.add('bg-gray-900', 'shadow-lg');
@@ -61,4 +63,40 @@
     }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Close mobile menu after scroll settles
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileMenu.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', () => {
+      window.addEventListener('scrollend', () => mobileMenu.close(), { once: true });
+    });
+  });
+
+  // Custom fast smooth scroll (400ms, ease-out cubic)
+  function smoothScrollTo(target, duration = 300) {
+    const navHeight = nav.offsetHeight;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    const startY = window.scrollY;
+    const diff = targetTop - startY;
+    const startTime = performance.now();
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, startY + diff * ease);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      smoothScrollTo(target);
+    });
+  });
 </script>
