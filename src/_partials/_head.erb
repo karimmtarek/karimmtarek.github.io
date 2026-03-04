@@ -5,6 +5,22 @@
 
 <meta name="description" content="<%= metadata.description %>" />
 
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://karimtarek.com<%= relative_url '/' %>" />
+<meta property="og:title" content="<%= resource_title != 'Index' ? "#{resource_title} | #{metadata.title}" : "#{metadata.title}: #{metadata.tagline}" %>" />
+<meta property="og:description" content="<%= metadata.description %>" />
+<meta property="og:image" content="https://karimtarek.com<%= relative_url '/images/karim.jpg' %>" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<%= resource_title != 'Index' ? "#{resource_title} | #{metadata.title}" : "#{metadata.title}: #{metadata.tagline}" %>" />
+<meta name="twitter:description" content="<%= metadata.description %>" />
+<meta name="twitter:image" content="https://karimtarek.com<%= relative_url '/images/karim.jpg' %>" />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://karimtarek.com<%= relative_url resource.relative_url %>" />
+
 <link rel="stylesheet" href="<%= asset_path :css %>" />
 <script src="<%= asset_path :js %>" defer></script>
 <%= live_reload_dev_js %>

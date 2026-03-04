@@ -7,7 +7,7 @@
         <p class="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-300"><%= data.contact.section_description %></p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <a id="contact-email" href="#" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><%= data.contact.section_title %></a>
-          <a href="<%= data.contact.linkedin_url %>" target="_blank" class="text-sm/6 font-semibold text-white">
+          <a href="<%= data.contact.linkedin_url %>" target="_blank" rel="noopener noreferrer" class="text-sm/6 font-semibold text-white">
             <%= data.contact.linkedin_label %>
             <span aria-hidden="true">→</span>
           </a>
