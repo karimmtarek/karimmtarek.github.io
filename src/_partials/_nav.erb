@@ -1,8 +1,9 @@
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+<!-- The mobile menu runs on the native invoker commands API (command/commandfor). -->
+<!-- The script below shims it for browsers that predate it (Safari < 26.2, Firefox < 144, Chrome < 135), -->
+<!-- so `@tailwindplus/elements` is not needed at runtime. -->
 <header id="site-nav" class="fixed inset-x-0 top-0 z-50 bg-transparent transition-colors duration-300">
   <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-    <a href="#header" class="-m-1.5 p-1.5">
+    <a href="#header" class="-m-1.5 rounded-md p-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
       <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" class="h-8 w-auto" />
     </a>
     <div class="flex lg:hidden">
@@ -20,11 +21,11 @@
     </div>
   </nav>
   <el-dialog>
-    <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+    <dialog id="mobile-menu" aria-label="Main menu" class="backdrop:bg-transparent lg:hidden">
       <div tabindex="0" class="fixed inset-0 focus:outline-none">
         <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
           <div class="flex items-center justify-between">
-            <a href="#header" class="-m-1.5 p-1.5">
+            <a href="#header" class="-m-1.5 rounded-md p-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
               <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" class="h-8 w-auto" />
             </a>
             <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-white">
@@ -50,55 +51,92 @@
 </header>
 
 <script>
-  const nav = document.getElementById('site-nav');
+  (function () {
+    const nav = document.getElementById('site-nav');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // Scroll-linked nav background
-  const onScroll = () => {
-    if (window.scrollY > 0) {
-      nav.classList.add('bg-gray-900', 'shadow-lg');
-      nav.classList.remove('bg-transparent');
-    } else {
-      nav.classList.remove('bg-gray-900', 'shadow-lg');
-      nav.classList.add('bg-transparent');
-    }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
+    // Scroll-linked nav background
+    const onScroll = () => {
+      if (window.scrollY > 0) {
+        nav.classList.add('bg-gray-900', 'shadow-lg');
+        nav.classList.remove('bg-transparent');
+      } else {
+        nav.classList.remove('bg-gray-900', 'shadow-lg');
+        nav.classList.add('bg-transparent');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Close mobile menu after scroll settles
-  const mobileMenu = document.getElementById('mobile-menu');
-  mobileMenu.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener('click', () => {
-      window.addEventListener('scrollend', () => mobileMenu.close(), { once: true });
-    });
-  });
-
-  // Custom fast smooth scroll (400ms, ease-out cubic)
-  function smoothScrollTo(target, duration = 300) {
-    const navHeight = nav.offsetHeight;
-    const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
-    const startY = window.scrollY;
-    const diff = targetTop - startY;
-    const startTime = performance.now();
-
-    function step(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      window.scrollTo(0, startY + diff * ease);
-      if (progress < 1) requestAnimationFrame(step);
+    // Invoker commands shim. Safari only shipped command/commandfor in 26.2 (Firefox 144, Chrome 135), so on
+    // older versions the hamburger would do nothing and there would be no mobile
+    // navigation at all. Open and close the dialog by hand when it is missing.
+    if (!('command' in HTMLButtonElement.prototype)) {
+      document.querySelectorAll('button[commandfor]').forEach(button => {
+        button.addEventListener('click', () => {
+          const dialog = document.getElementById(button.getAttribute('commandfor'));
+          if (!dialog) return;
+          const command = button.getAttribute('command');
+          if (command === 'show-modal') dialog.showModal();
+          else if (command === 'close') dialog.close();
+        });
+      });
     }
 
-    requestAnimationFrame(step);
-  }
+    // Move focus to the section we scrolled to, so the keyboard tab order and the
+    // screen reader cursor follow the page instead of staying on <body>.
+    function focusTarget(el) {
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+      el.focus({ preventScroll: true });
+    }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
-        smoothScrollTo(target);
+    // Custom fast smooth scroll (300ms, ease-out cubic), skipped entirely when the
+    // visitor has asked for reduced motion.
+    function smoothScrollTo(target, onDone, duration = 300) {
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight;
+
+      if (reduceMotion.matches) {
+        window.scrollTo(0, targetTop);
+        onDone();
+        return;
+      }
+
+      const startY = window.scrollY;
+      const diff = targetTop - startY;
+      const startTime = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        window.scrollTo(0, startY + diff * ease);
+        if (progress < 1) requestAnimationFrame(step);
+        else onDone();
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        const hash = link.getAttribute('href');
+        if (!hash || hash.length < 2) return;
+
+        const inMobileMenu = mobileMenu.contains(link);
+
+        link.addEventListener('click', e => {
+          const target = document.querySelector(hash);
+          if (!target) return;
+          e.preventDefault();
+          smoothScrollTo(target, () => {
+            // Close the panel before focusing: dialog.close() hands focus back to
+            // the hamburger button, which would undo focusTarget otherwise.
+            // This also replaces the old scrollend listener, which never fires on
+            // Safari before 26.2.
+            if (inMobileMenu && mobileMenu.open) mobileMenu.close();
+            focusTarget(target);
+          });
+        });
       });
     });
-  });
+  })();
 </script>

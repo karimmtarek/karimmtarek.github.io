@@ -10,10 +10,13 @@
     <!-- End Google Tag Manager (noscript) -->
     <%#= render Shared::Navbar.new(metadata: site.metadata, resource: resource) %>
 
-    <main>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-gray-900 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600">Skip to main content</a>
+
+    <%= render "nav", data: site.data.content %>
+
+    <main id="main-content">
       <%#= yield %>
       <%#= render "hero", data: site.data.content %>
-      <%#= render "nav", data: site.data.content %>
       <%= render "header-alt", data: site.data.content %>
       <%#= render "header", data: site.data.content %>
       <%= render "projects", data: site.data.content %>

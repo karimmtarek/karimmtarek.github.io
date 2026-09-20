@@ -5,6 +5,27 @@
 /* Set up Tailwind imports */
 @import "tailwindcss";
 
+/* The site nav is fixed at 80px, so fragment targets reached without going through
+   the nav click handler (external #hash links, history navigation, Safari's
+   find-on-page) would otherwise land underneath it. */
+html {
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 :root {
   --body-background: #f2f2f2;
   --body-color: #444;
