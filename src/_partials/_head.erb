@@ -27,7 +27,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:image" content="https://karimtarek.com<%= relative_url '/images/karim.jpg' %>" />
 
 <!-- Canonical -->
+<% if resource.data.robots.to_s.include?("noindex") %>
+<meta name="robots" content="noindex" />
+<% else %>
 <link rel="canonical" href="https://karimtarek.com<%= relative_url resource.relative_url %>" />
+<% end %>
 
 <link rel="stylesheet" href="<%= asset_path :css %>" />
 <script src="<%= asset_path :js %>" defer></script>
