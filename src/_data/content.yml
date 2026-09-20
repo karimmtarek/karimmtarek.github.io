@@ -29,7 +29,6 @@ stats:
 projects:
   section_label: "Shopify Plus Projects"
   section_title: "Custom storefronts for brands with real complexity"
-  section_description: "Custom Shopify Plus builds for real brands with real complexity - product configurators, third-party integrations, and pages that actually perform."
   section_description: "At PIVOT, I worked as part of small dev teams on custom Shopify Plus builds - third-party integrations, content templates, and ongoing feature work."
   list:
     - name: "Timbuk2"
@@ -245,7 +244,7 @@ about:
     - "I've also built and published [FieldsRaven](https://apps.shopify.com/fieldsraven), a Shopify app on the App Store that extends the Metafields API - so I understand the platform from the app side too, not just the theme side."
     - "Before Shopify, I worked at the ALDO Group, worked on a high-traffic web app for Keurig's Canadian launch, and spent time at Doctors Without Borders managing their UAE web presence. I hold a B.Sc. in Computer Engineering and a Project Management certificate from McGill."
     - "I work best on a part-time or retainer basis, consistent enough to understand your brand, flexible enough to not be overhead you don't need. I'm remote-first and have been for years. I take pride in the work and I'm in it for the long game. Good work leads to repeat business, and that's exactly how I want to grow."
-  qoute:
+  quote:
     body: Fast and flexible and dedicated to delivering work that fit our needs.
     name: Amy Boyle
     title: COO, June & January
