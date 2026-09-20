@@ -10,15 +10,14 @@ nav:
     href: contact
 
 hero:
-  label: "Available for contract & retainer work"
-  headline: "Senior Shopify Plus developer for themes, integrations, and growth work"
+  headline: "Senior Shopify Plus developer for themes and integrations"
   subheading: "I'm Karim. If you're on Shopify Plus and your theme is fighting you, I can help. I've contributed to 20+ custom storefronts for brands like Timbuk2, UrbanStems, and Vuori at PIVOT, a Shopify Plus Agency Partner - custom theme builds, integrations, and the front-end features your theme can't do on its own."
   cta_primary: "Let's Talk"
   cta_secondary: "See My Work"
 
 stats:
   - number: "20+"
-    label: "DTC Brand Storefronts"
+    label: "DTC storefronts contributed to"
   - number: "2,100+"
     label: "Production Commits"
   - number: "17+"
@@ -32,7 +31,7 @@ projects:
   section_description: "At PIVOT, I worked as part of small dev teams on custom Shopify Plus builds - third-party integrations, content templates, and ongoing feature work."
   list:
     - name: "Timbuk2"
-      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Bags & accessories"
       body: "Timbuk2 is an iconic bag brand with a loyal customer base and a complex product catalog. At PIVOT, I worked on their custom Shopify Plus storefront as part of a small dev team over 14 months. My contributions included custom Liquid templates, responsive front-end implementation, structured data schemas, and integration work across their marketing and analytics stack including Klevu search and Elevar tracking. I also worked on their help center, eco/sustainability pages, store locator, and corporate page system."
       tags:
@@ -44,7 +43,7 @@ projects:
         - "142 Commits"
 
     - name: "UrbanStems"
-      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Gifting & subscriptions"
       body: "UrbanStems is a modern flower and gifting brand with subscription complexity and seasonal campaigns. At PIVOT, I worked on their custom Shopify Plus storefront, contributing product tile systems for the PLP, Yotpo review widget integration and styling on the PDP, structured data implementation (Organization, Product, Article schemas), and landing pages for their rewards, referral, and corporate gifting programs. I also worked on subscription landing page templates and video integration for hero sections."
       tags:
@@ -56,20 +55,18 @@ projects:
         - "95 Commits"
 
     - name: "X-Chair"
-      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Furniture & ergonomics"
       body: "X-Chair sells premium ergonomic chairs with a product configurator that lets customers build custom combinations - one of the more complex PDP experiences in Shopify Plus. At PIVOT, I was on this project for 18 months with 328 commits. My work included homepage styling to match the X-Chair design system, Affirm buy-now-pay-later messaging across PDP, cart, and PLP, Klevu integration for collection search and filtering, Yotpo for reviews and UGC, Elevar scripts for checkout tracking, and front-end builds for corporate pages, help centers, store locators, and warranty forms."
       tags:
-        - "Product Configurator"
         - "Affirm BNPL"
         - "Klevu Search"
         - "Yotpo Reviews & UGC"
         - "Elevar"
-        - "Salesforce"
         - "328 Commits"
 
     - name: "Celluma"
-      subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Health & wellness"
       body: "Celluma makes FDA-cleared LED light therapy devices - a product that requires a content-heavy storefront with educational pages and a professional vs. consumer audience split. At PIVOT, I contributed 209 commits over the course of this project. My work covered content page templates, blog filtering with author views, Rebuy cart integration for free gift logic and variant backorder messaging, Klaviyo modal and form integrations with GA event tracking, and accessibility improvements including focus traps, alt attributes, and translations. I also worked on theme settings to scope changes between their US and international stores."
       tags:
@@ -243,7 +240,7 @@ about:
     - "I'm Karim, a fullstack Shopify developer based in Victoria, BC. I've been building for the web for over 17 years, with the last 9 focused on Shopify. Most recently I spent nearly 3 years at PIVOT, a Shopify Plus Agency Partner, where I contributed to custom storefronts for 20+ DTC brands as part of small development teams."
     - "I've also built and published [FieldsRaven](https://apps.shopify.com/fieldsraven), a Shopify app on the App Store that extends the Metafields API - so I understand the platform from the app side too, not just the theme side."
     - "Before Shopify, I worked at the ALDO Group, worked on a high-traffic web app for Keurig's Canadian launch, and spent time at Doctors Without Borders managing their UAE web presence. I hold a B.Sc. in Computer Engineering and a Project Management certificate from McGill."
-    - "I work best on a part-time or retainer basis, consistent enough to understand your brand, flexible enough to not be overhead you don't need. I'm remote-first and have been for years. I take pride in the work and I'm in it for the long game. Good work leads to repeat business, and that's exactly how I want to grow."
+    - "I'm remote-first and have been for years. I take pride in the work and I'm in it for the long game. Good work leads to repeat business, and that's exactly how I want to grow."
   quote:
     body: Fast and flexible and dedicated to delivering work that fit our needs.
     name: Amy Boyle
