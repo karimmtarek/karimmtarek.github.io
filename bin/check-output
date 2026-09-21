@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Smoke checks on the production build. Run after `BRIDGETOWN_ENV=production bin/bridgetown deploy`.
+set -euo pipefail
+o=output
+fail() { echo "FAIL: $1"; exit 1; }
+
+[ -f "$o/index.html" ] || fail "no index.html"
+[ "$(grep -c '<h1' "$o/index.html")" = "1" ] || fail "homepage must have exactly one h1"
+for p in about posts updates 500.html; do [ ! -e "$o/$p" ] || fail "starter path $p still built"; done
+grep -rqi 'welcome to your new bridgetown\|Your First Post' "$o" --include='*.html' && fail "starter text in output" || true
+grep -q 'name="robots" content="noindex"' "$o/404.html" || fail "404 lacks noindex"
+grep -q 'id="projects"' "$o/404.html" && fail "404 still renders the homepage" || true
+grep -q 'rel="canonical"' "$o/404.html" && fail "404 carries a canonical" || true
+grep -q 'href="#"' "$o/index.html" && fail 'dead href="#" on homepage' || true
+grep -q 'href="mailto:' "$o/index.html" || fail "no mailto in served HTML"
+grep -qi 'built at PIVOT' "$o/index.html" && fail "claim wording: built at PIVOT" || true
+grep -qi 'more_brands\|technical_stack' "$o/index.html" && fail "unrendered YAML section leaked into output" || true
+[ -f "$o/robots.txt" ] || fail "no robots.txt"
+[ "$(head -c 5 "$o/sitemap.xml")" = "<?xml" ] || fail "sitemap.xml missing or has leading whitespace"
+grep -rq 'Bridgetown is loaded' "$o/_bridgetown/static" && fail "console.info still bundled" || true
+# Enable with WI-20 (real icon files):
+# [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
+# [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"
+# Enable with WI-19 (JSON-LD present and parseable):
+# ruby -rjson -e 'h=File.read("output/index.html"); j=h[/<script type="application\/ld\+json">(.*?)<\/script>/m,1] or abort("FAIL: no JSON-LD"); JSON.parse(j.gsub("<\\/","</"))'
+echo "output checks passed"

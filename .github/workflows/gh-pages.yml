@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  pull_request:
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -21,19 +26,24 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-      - run: npm install
+      - run: npm ci
 
       - name: Build
         env:
           BRIDGETOWN_ENV: production
         run: bin/bridgetown deploy
 
+      - name: Check output
+        run: bin/check-output
+
       - name: Upload build artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./output
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
 
     permissions:
