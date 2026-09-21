@@ -8,22 +8,25 @@
     <a href="<%= anchor_prefix %>#header" class="-m-1.5 rounded-md p-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
       <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" class="h-8 w-auto" />
     </a>
-    <div class="flex lg:hidden">
-      <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
-        <span class="sr-only">Open main menu</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-          <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-    </div>
-    <div class="hidden lg:flex lg:gap-x-12">
-      <% data.nav.each do |link| %>
-        <a href="<%= anchor_prefix %>#<%= link.href %>" class="text-sm/6 font-semibold text-white"><%= link.label %></a>
-      <% end %>
+    <div class="flex items-center gap-x-4 lg:gap-x-10">
+      <div class="hidden lg:flex lg:gap-x-10">
+        <% data.nav.each do |link| %>
+          <a href="<%= anchor_prefix %>#<%= link.href %>" class="text-sm/6 font-semibold text-white"><%= link.label %></a>
+        <% end %>
+      </div>
+      <a href="<%= anchor_prefix %>#contact" class="rounded-md px-3 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><%= data.cta.header_label %></a>
+      <div class="flex lg:hidden">
+        <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+          <span class="sr-only">Open main menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
   <el-dialog>
-    <dialog id="mobile-menu" aria-label="Main menu" class="backdrop:bg-transparent lg:hidden">
+    <dialog id="mobile-menu" data-track-location="mobile-menu" aria-label="Main menu" class="backdrop:bg-transparent lg:hidden">
       <div tabindex="0" class="fixed inset-0 focus:outline-none">
         <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
           <div class="flex items-center justify-between">
@@ -43,6 +46,9 @@
                 <% data.nav.each do |link| %>
                   <a href="<%= anchor_prefix %>#<%= link.href %>" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800"><%= link.label %></a>
                 <% end %>
+              </div>
+              <div class="py-6">
+                <a href="<%= anchor_prefix %>#contact" class="-mx-3 block rounded-lg px-3 py-2.5 text-center text-base/7 font-semibold text-white ring-1 ring-inset ring-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><%= data.cta.header_label %></a>
               </div>
             </div>
           </div>

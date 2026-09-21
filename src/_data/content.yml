@@ -3,83 +3,82 @@
 
 nav:
   - label: Work
-    href: projects
-  - label: How I Help
-    href: services
-  - label: Contact
-    href: contact
+    href: work
+  - label: About
+    href: about
 
 hero:
   headline: "Senior Shopify Plus developer for themes and integrations"
   subheading: "I'm Karim. If you're on Shopify Plus and your theme is fighting you, I can help. I've contributed to 20+ custom storefronts for brands like Timbuk2, UrbanStems, and Vuori at PIVOT, a Shopify Plus Agency Partner - custom theme builds, integrations, and the front-end features your theme can't do on its own."
-  cta_primary: "Let's Talk"
+  portrait_alt: "Portrait of Karim Tarek, Shopify developer in Victoria, BC"
+
+cta:
+  header_label: "Get in touch"
+  primary:
+    type: anchor
+    label: "Let's Talk"
+    url: "#contact"
 
 stats:
   - number: "20+"
     label: "DTC storefronts contributed to"
-  - number: "2,100+"
-    label: "Production Commits"
   - number: "17+"
-    label: "Years in Web Dev"
-  - number: "1"
-    label: "Published Shopify App"
+    label: "years in web development"
+  - number: "FieldsRaven"
+    label: "a published Shopify app"
 
 projects:
-  section_label: "Shopify Plus Projects"
-  section_title: "Custom storefronts for brands with real complexity"
-  section_description: "At PIVOT, I worked as part of small dev teams on custom Shopify Plus builds - third-party integrations, content templates, and ongoing feature work."
+  section_label: "Selected work"
+  section_title: "Selected Shopify Plus work at PIVOT"
+  section_description: "At PIVOT, a Shopify Plus agency partner, I contributed to more than 20 DTC storefronts over nearly three years, working within existing codebases and small development teams. Here are four of them, with my part in each."
   list:
     - name: "Timbuk2"
       subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
-      category: "Bags & accessories"
-      body: "Timbuk2 is an iconic bag brand with a loyal customer base and a complex product catalog. At PIVOT, I worked on their custom Shopify Plus storefront as part of a small dev team over 14 months. My contributions included custom Liquid templates, responsive front-end implementation, structured data schemas, and integration work across their marketing and analytics stack including Klevu search and Elevar tracking. I also worked on their help center, eco/sustainability pages, store locator, and corporate page system."
+      category: "Bags and accessories"
+      body: "Timbuk2 is a bag brand with a loyal customer base and a complex product catalog. At PIVOT, I worked on their custom Shopify Plus storefront as part of a small dev team over 14 months. My contributions included custom Liquid templates, responsive front-end implementation, structured data schemas, and integration work across their marketing and analytics stack including Klevu search and Elevar tracking. I also worked on their help center, eco/sustainability pages, store locator, and corporate page system."
       tags:
-        - "Custom Liquid Theme"
-        - "Klevu Search"
-        - "Elevar Analytics"
-        - "Structured Data"
-        - "Help Center"
-        - "142 Commits"
+        - "Liquid templates"
+        - "Klevu search"
+        - "Elevar scripts"
+        - "Structured data"
+        - "Help center"
 
     - name: "UrbanStems"
       subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
-      category: "Gifting & subscriptions"
+      category: "Gifting and subscriptions"
       body: "UrbanStems is a modern flower and gifting brand with subscription complexity and seasonal campaigns. At PIVOT, I worked on their custom Shopify Plus storefront, contributing product tile systems for the PLP, Yotpo review widget integration and styling on the PDP, structured data implementation (Organization, Product, Article schemas), and landing pages for their rewards, referral, and corporate gifting programs. I also worked on subscription landing page templates and video integration for hero sections."
       tags:
-        - "Yotpo Reviews"
-        - "Structured Data"
-        - "Subscription LPs"
-        - "Rewards & Referral Pages"
-        - "Corporate Gifting Template"
-        - "95 Commits"
+        - "Yotpo reviews"
+        - "Structured data"
+        - "Subscription landing pages"
+        - "Rewards and referral pages"
+        - "Corporate gifting template"
 
     - name: "X-Chair"
       subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
-      category: "Furniture & ergonomics"
-      body: "X-Chair sells premium ergonomic chairs with a product configurator that lets customers build custom combinations - one of the more complex PDP experiences in Shopify Plus. At PIVOT, I was on this project for 18 months with 328 commits. My work included homepage styling to match the X-Chair design system, Affirm buy-now-pay-later messaging across PDP, cart, and PLP, Klevu integration for collection search and filtering, Yotpo for reviews and UGC, Elevar scripts for checkout tracking, and front-end builds for corporate pages, help centers, store locators, and warranty forms."
+      category: "Furniture and ergonomics"
+      body: "X-Chair sells ergonomic chairs with a product configurator that lets customers build custom combinations. At PIVOT, I was on this project for 18 months. My work included homepage styling to match the X-Chair design system, Affirm buy-now-pay-later messaging across PDP, cart, and PLP, Klevu integration for collection search and filtering, Yotpo for reviews and UGC, Elevar scripts for checkout tracking, and front-end builds for corporate pages, help centers, store locators, and warranty forms."
       tags:
-        - "Affirm BNPL"
-        - "Klevu Search"
-        - "Yotpo Reviews & UGC"
-        - "Elevar"
-        - "328 Commits"
+        - "Affirm"
+        - "Klevu search"
+        - "Yotpo reviews"
+        - "Elevar scripts"
 
     - name: "Celluma"
       subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
-      category: "Health & wellness"
-      body: "Celluma makes FDA-cleared LED light therapy devices - a product that requires a content-heavy storefront with educational pages and a professional vs. consumer audience split. At PIVOT, I contributed 209 commits over the course of this project. My work covered content page templates, blog filtering with author views, Rebuy cart integration for free gift logic and variant backorder messaging, Klaviyo modal and form integrations with GA event tracking, and accessibility improvements including focus traps, alt attributes, and translations. I also worked on theme settings to scope changes between their US and international stores."
+      category: "Health and wellness"
+      body: "Celluma sells LED light therapy devices to professional and consumer audiences, which calls for a content-heavy storefront with educational pages. At PIVOT, I contributed to this project as part of a small dev team. My work covered content page templates, blog filtering with author views, Rebuy cart integration for free gift logic and variant backorder messaging, Klaviyo modal and form integrations with GA event tracking, and accessibility improvements including focus traps, alt attributes, and translations. I also worked on theme settings to scope changes between their US and international stores."
       tags:
-        - "Rebuy Smart Cart"
-        - "Klaviyo Forms & Modals"
-        - "GA Event Tracking"
+        - "Rebuy cart"
+        - "Klaviyo forms"
+        - "GA events"
         - "Accessibility"
-        - "Multi-store Settings"
-        - "209 Commits"
+        - "Multi-store settings"
 
 beyond_client_work:
-  section_label: "Beyond Client Work"
-  section_title: "A published app and a viral campaign"
-  section_description: "A published app I built on my own, and a campaign project worth mentioning."
+  section_label: "Own products and earlier work"
+  section_title: "A published Shopify app, and earlier campaign work"
+  section_description: "FieldsRaven, a published Shopify app I built and maintain, and an earlier campaign project."
   projects:
     - name: "FieldsRaven"
       subtitle: "My Own Shopify App - Live on the Shopify App Store"
@@ -104,8 +103,8 @@ beyond_client_work:
         - "Process Automation"
 
 how_i_help:
-  section_label: "How I Help"
-  section_title: "Ongoing Shopify Plus support without the agency layers"
+  section_label: "Working with me"
+  section_title: "Working with me"
   body: "I spent nearly 3 years working on custom Shopify Plus storefronts at PIVOT, a Shopify Plus Agency Partner. Now I work directly with brands and agencies. I'm available for ongoing retainers, project-based work, or a mix of both, and I usually work on retainer so I can learn your theme, your integrations, and the edge cases that tend to show up at the worst times."
   checklist:
     - "Ongoing backlog work, bug fixes, and theme cleanup"
@@ -117,8 +116,8 @@ how_i_help:
 
 
 testimonials:
-  section_label: "What People Say"
-  section_title: "From the people I've worked with"
+  section_label: "Recommendations"
+  section_title: "Recommendations from clients and colleagues"
   quotes:
     - name: "Mary-Kevin Stuart"
       role: "Entrepreneur - Shopify Store Owner"
@@ -166,10 +165,11 @@ about:
     thumb: "amy.jpg"
 
 contact:
-  section_label: "Get in Touch"
-  section_title: "Let's talk about your store"
+  section_label: "Contact"
+  section_title: "Work with me"
   section_description: "Whether it's a custom build, an integration that's not working right, or ongoing development support. I'd love to hear what you're working on."
   email: "karim@karimtarek.com"
+  mailto_subject: "Inquiry%20via%20karimtarek.com"
   linkedin_label: "LinkedIn"
-  linkedin_url: "https://linkedin.com/in/karimtarek"
+  linkedin_url: "https://www.linkedin.com/in/karimtarek"
   github_url: "https://github.com/karimmtarek"

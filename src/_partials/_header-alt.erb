@@ -2,10 +2,30 @@
   <div id="header" class="relative bg-gray-900">
     <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40">
       <div class="pl-6 pr-6 md:mr-auto md:w-2/3 md:pr-16 lg:w-1/2 lg:pl-0 lg:pr-24 xl:pr-32">
-        <% if data.hero.label && !data.hero.label.empty? %><p class="text-base/7 font-semibold text-indigo-400"><%= data.hero.label %></p><% end %>
+        <img src="<%= relative_url '/images/karim-portrait-192.jpg' %>" alt="<%= data.hero.portrait_alt %>" width="80" height="80" decoding="async" class="mb-6 size-20 rounded-full object-cover ring-2 ring-white/10 md:hidden" />
+        <% if data.hero.label && !data.hero.label.to_s.empty? %>
+          <p class="text-base/7 font-semibold text-indigo-400"><%= data.hero.label %></p>
+        <% end %>
         <h1 class="mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl"><%= data.hero.headline %></h1>
         <p class="mt-6 text-base/7 text-gray-300"><%= data.hero.subheading %></p>
-        <dl class="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
+        <% if data.status_line %>
+          <% before, after = data.status_line.split("Goodharbour", 2) %>
+          <p class="mt-4 text-base/7 text-gray-300"><%= before %><a href="https://goodharbour.ca/" class="font-semibold text-white underline decoration-gray-600 underline-offset-4 hover:decoration-white">Goodharbour</a><%= after %></p>
+        <% end %>
+        <% primary = data.cta.primary
+           mailto = "mailto:#{data.contact.email}?subject=#{data.contact.mailto_subject}"
+           primary_href = primary.type == "email" ? mailto : primary.url %>
+        <div class="mt-8">
+          <a href="<%= primary_href %>" class="inline-flex flex-col rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            <span><%= primary.label %></span>
+            <% if primary.cue %><span class="text-xs font-normal text-indigo-100"><%= primary.cue %></span><% end %>
+          </a>
+        </div>
+        <p class="mt-4 text-sm/6 text-gray-400">
+          <a href="<%= mailto %>" class="underline decoration-gray-600 underline-offset-4 hover:text-white"><%= data.contact.email %></a>
+          · <a href="<%= data.contact.linkedin_url %>" class="underline decoration-gray-600 underline-offset-4 hover:text-white"><%= data.contact.linkedin_label %></a>
+        </p>
+        <dl class="mt-10 grid max-w-xl grid-cols-2 gap-x-8 gap-y-6 sm:mt-14">
           <% data.stats.each do |stat| %>
             <div class="flex flex-col gap-y-3 border-l text-gray-600 pl-6">
               <dt class="text-sm/6 text-gray-300"><%= stat.label %></dt>
@@ -13,9 +33,6 @@
             </div>
           <% end %>
         </dl>
-        <div class="mt-8">
-          <a href="#contact" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"> <%= data.hero.cta_primary %> </a>
-        </div>
       </div>
     </div>
     <div class="hidden md:block overflow-hidden bg-indigo-600 md:absolute md:right-0 md:top-0 md:h-full md:w-1/3 lg:w-1/2">

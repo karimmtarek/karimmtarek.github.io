@@ -18,6 +18,18 @@ grep -qi 'more_brands\|technical_stack' "$o/index.html" && fail "unrendered YAML
 [ -f "$o/robots.txt" ] || fail "no robots.txt"
 [ "$(head -c 5 "$o/sitemap.xml")" = "<?xml" ] || fail "sitemap.xml missing or has leading whitespace"
 grep -rq 'Bridgetown is loaded' "$o/_bridgetown/static" && fail "console.info still bundled" || true
+for id in work projects own-work about contact; do
+  grep -q "id=\"$id\"" "$o/index.html" || fail "homepage lacks #$id"
+done
+grep -q 'href="#services"' "$o/index.html" && fail "removed services nav link still present" || true
+grep -q 'Get in touch' "$o/index.html" || fail "header contact button missing"
+grep -qi 'commits' "$o/index.html" && fail "commit counts remain in rendered copy" || true
+grep -qi 'FDA-cleared\|more complex PDP\|agency layers\|Salesforce' "$o/index.html" && fail "unsupported project or offer wording remains" || true
+grep -q 'Product Configurator' "$o/index.html" && fail "unsupported Product Configurator tag remains" || true
+grep -q 'Selected Shopify Plus work at PIVOT' "$o/index.html" || fail "project heading missing"
+grep -q 'Recommendations from clients and colleagues' "$o/index.html" || fail "testimonial heading missing"
+[ "$(grep -o '<dd[^>]*>[^<]*' "$o/index.html" | wc -l | tr -d ' ')" = "3" ] || fail "proof strip must contain three items"
+[ -s "$o/images/karim-portrait-192.jpg" ] || fail "mobile portrait missing"
 # Enable with WI-20 (real icon files):
 # [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
 # [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"
