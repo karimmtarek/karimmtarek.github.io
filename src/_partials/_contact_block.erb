@@ -28,12 +28,12 @@
   <p class="mt-10 text-base/7 text-gray-300">
     <%= contact.email_prompt %>
     <a id="contact-email" href="<%= mailto %>" class="font-semibold text-white underline decoration-indigo-400 underline-offset-4"><%= contact.email %></a>
-    · <a href="<%= contact.linkedin_url %>" target="_blank" rel="noopener noreferrer" class="font-semibold text-white"><%= contact.linkedin_label %></a>
+    · <a href="<%= contact.linkedin_url %>" class="font-semibold text-white"><%= contact.linkedin_label %></a>
   </p>
 <% else %>
   <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6">
     <a id="contact-email" href="<%= mailto %>" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><%= cta.primary.label %></a>
-    <a href="<%= contact.linkedin_url %>" target="_blank" rel="noopener noreferrer" class="text-sm/6 font-semibold text-white"><%= contact.linkedin_label %> <span aria-hidden="true">→</span></a>
+    <a href="<%= contact.linkedin_url %>" class="text-sm/6 font-semibold text-white"><%= contact.linkedin_label %> <span aria-hidden="true">→</span></a>
   </div>
   <p class="mt-6 text-base/7 text-gray-300"><a href="<%= mailto %>" class="font-semibold text-white underline decoration-indigo-400 underline-offset-4"><%= contact.email %></a></p>
   <% if cta.secondary && cta.secondary.type == "form_alternatives" %>

@@ -45,6 +45,7 @@ grep -q 'These buttons open the contact form on goodharbour.ca.' "$o/index.html"
 [ "$(grep -c 'href="mailto:' "$o/index.html")" = "2" ] || fail "homepage must keep two visible email paths"
 [ "$(grep -c 'my independent software studio' "$o/index.html")" = "2" ] || fail "studio status must render in hero and contact"
 grep -q 'founder of Goodharbour. Background, selected work' "$o/index.html" || fail "final profile description missing"
+ruby -e 'links = File.read(ARGV.fetch(0)).scan(/<a\b[^>]*>/mi); abort "FAIL: homepage link forces a new browsing context" if links.any? { |link| link.match?(/\s+target\s*=/i) }' "$o/index.html"
 # Enable with WI-20 (real icon files):
 # [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
 # [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"
