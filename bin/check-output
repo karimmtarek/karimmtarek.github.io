@@ -35,6 +35,16 @@ grep -q '<h1[^>]*>Karim Tarek, senior Shopify developer</h1>' "$o/index.html" ||
 grep -qi 'fullstack\|fighting you\|last 9\|Vuori' "$o/index.html" && fail "superseded identity copy remains" || true
 grep -q 'About Karim Tarek' "$o/index.html" || fail "About identity heading missing"
 grep -q 'Pacific time' "$o/index.html" || fail "approved location line missing"
+[ "$(grep -o 'goodharbour.ca' "$o/index.html" | wc -l | tr -d ' ')" -ge "3" ] || fail "Goodharbour handoff links missing"
+grep -q 'contact/?type=commerce' "$o/index.html" || fail "Shopify handoff missing"
+grep -q 'contact/?type=team' "$o/index.html" || fail "team handoff missing"
+grep -o '<a[^>]*goodharbour.ca[^>]*>' "$o/index.html" | grep -q 'noreferrer\|target=\|utm_' && fail "Goodharbour handoff hides referral" || true
+grep -qi 'retainer\|agency layers\|available for' "$o/index.html" && fail "competing offer wording remains" || true
+grep -q 'id="working-together"' "$o/index.html" && fail "K1-A must not render an offer section" || true
+grep -q 'These buttons open the contact form on goodharbour.ca.' "$o/index.html" || fail "handoff explanation missing"
+[ "$(grep -c 'href="mailto:' "$o/index.html")" = "2" ] || fail "homepage must keep two visible email paths"
+[ "$(grep -c 'my independent software studio' "$o/index.html")" = "2" ] || fail "studio status must render in hero and contact"
+grep -q 'founder of Goodharbour. Background, selected work' "$o/index.html" || fail "final profile description missing"
 # Enable with WI-20 (real icon files):
 # [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
 # [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"

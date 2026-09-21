@@ -7,6 +7,8 @@ nav:
   - label: About
     href: about
 
+status_line: "I take on client projects and team roles through Goodharbour, my independent software studio."
+
 hero:
   label: "Victoria, BC · Remote · Pacific time"
   headline: "Karim Tarek, senior Shopify developer"
@@ -15,10 +17,21 @@ hero:
 
 cta:
   header_label: "Get in touch"
+  handoff_note: "These buttons open the contact form on goodharbour.ca."
   primary:
-    type: anchor
-    label: "Let's Talk"
-    url: "#contact"
+    type: handoff
+    label: "Discuss Shopify work"
+    cue: "via Goodharbour"
+    url: "https://goodharbour.ca/contact/?type=commerce"
+    hint: "Share the store URL, what needs to change, and the result you want. A short explanation is enough to start."
+  secondary:
+    type: handoff
+    label: "Discuss a team role"
+    url: "https://goodharbour.ca/contact/?type=team"
+    hint: "Send the type of work, technology, expected hours, duration and start date."
+  band:
+    heading: "Tell me what is happening with the store"
+    team_prompt: "Bringing a developer into your team?"
 
 stats:
   - number: "20+"
@@ -103,19 +116,6 @@ beyond_client_work:
         - "3-4 Week Turnaround"
         - "Process Automation"
 
-how_i_help:
-  section_label: "Working with me"
-  section_title: "Working with me"
-  body: "I spent nearly 3 years working on custom Shopify Plus storefronts at PIVOT, a Shopify Plus Agency Partner. Now I work directly with brands and agencies. I'm available for ongoing retainers, project-based work, or a mix of both, and I usually work on retainer so I can learn your theme, your integrations, and the edge cases that tend to show up at the worst times."
-  checklist:
-    - "Ongoing backlog work, bug fixes, and theme cleanup"
-    - "PDP and cart work: configurators, bundles, subscriptions, sticky ATCs, and size charts"
-    - "Third-party integrations: Klaviyo, Yotpo, Rebuy, Klevu, Elevar, and Affirm"
-    - "Landing pages, seasonal campaigns, and launch support"
-    - "Structured data, SEO hygiene, and site speed improvements"
-
-
-
 testimonials:
   section_label: "Recommendations"
   section_title: "Recommendations from clients and colleagues"
@@ -168,9 +168,11 @@ about:
 contact:
   section_label: "Contact"
   section_title: "Work with me"
-  section_description: "Whether it's a custom build, an integration that's not working right, or ongoing development support. I'd love to hear what you're working on."
   email: "karim@karimtarek.com"
   mailto_subject: "Inquiry%20via%20karimtarek.com"
+  email_prompt: "Prefer email?"
+  next_steps: "I’ll review what you send and let you know whether I can help. If I need more context, I’ll ask a few questions before suggesting a next step."
+  base_line: "Based in Victoria, BC. Working remotely."
   linkedin_label: "LinkedIn"
   linkedin_url: "https://www.linkedin.com/in/karimtarek"
   github_url: "https://github.com/karimmtarek"
