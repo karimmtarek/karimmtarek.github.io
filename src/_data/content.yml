@@ -13,7 +13,6 @@ hero:
   headline: "Senior Shopify Plus developer for themes and integrations"
   subheading: "I'm Karim. If you're on Shopify Plus and your theme is fighting you, I can help. I've contributed to 20+ custom storefronts for brands like Timbuk2, UrbanStems, and Vuori at PIVOT, a Shopify Plus Agency Partner - custom theme builds, integrations, and the front-end features your theme can't do on its own."
   cta_primary: "Let's Talk"
-  cta_secondary: "See My Work"
 
 stats:
   - number: "20+"
@@ -76,40 +75,6 @@ projects:
         - "Accessibility"
         - "Multi-store Settings"
         - "209 Commits"
-
-    # - name: "Vuori"
-    #   subtitle: "Custom Shopify Plus Storefront - Built at PIVOT (Shopify Plus Agency Partner)"
-    #   category: "ATHLEISURE & APPAREL"
-    #   body: "Vuori is one of the fastest-growing athleisure brands in the US. At PIVOT, I contributed to their custom Shopify Plus storefront, working on the Dreamknit collection template with a custom hero banner system, alternate states for lifestyle image components, a careers page template, and a size chart system for the Clae shoe collaboration. I also implemented a system to make Dreamknit-specific assets available across any page template with a Dreamknit suffix, so the content team could extend the collection without needing a developer."
-    #   tags:
-    #     - "Dreamknit Templates"
-    #     - "Lifestyle Image Components"
-    #     - "Size Chart System"
-    #     - "Dynamic Asset Loading"
-    #     - "Careers Template"
-    #     - "59 Commits"
-
-more_brands:
-  section_label: "More Brands I've Built For at PIVOT"
-  section_description: "Custom Shopify Plus storefronts with third-party integrations, custom templates, and ongoing development."
-  brands:
-    - "Mavix"
-    - "GrooveLife"
-    - "Ironwear"
-    - "MNML"
-    - "Minky Couture"
-    - "Recess Pickleball"
-    - "Vegamour"
-    - "HydroPeptide"
-    - "MadeByNacho"
-    - "Method Race Wheels"
-    - "Pelagic"
-    - "High Fashion Home"
-    - "Olga"
-    - "Rye"
-    - "iGroom"
-    - "A New Earth Project"
-    - "INA Labs"
 
 beyond_client_work:
   section_label: "Beyond Client Work"
@@ -185,53 +150,6 @@ testimonials:
       quote: "Not only he would deliver quality work on time, but also made sure he was improving his source code while keeping it readable and maintainable. His eye for design and his constant curiosity was also very appreciated by our team."
       thumb: "ysael.jpg"
 
-
-integrations:
-  section_label: "Integrations I Work With"
-  section_title: "Your marketing stack, wired up properly"
-  section_description: "These aren't just logos on a slide - I've implemented each of these across multiple production storefronts."
-  items:
-    - name: "Klaviyo"
-      description: "Email/SMS flows, back-in-stock alerts, custom form integrations, event tracking"
-    - name: "Yotpo"
-      description: "Reviews, UGC galleries, star ratings, custom widget styling"
-    - name: "Rebuy"
-      description: "Smart cart, cross-sells, personalized recommendations, free gift logic"
-    - name: "Klevu"
-      description: "Search, collection filtering, merchandising, analytics integration"
-    - name: "Elevar"
-      description: "Server-side tracking, data layer setup, conversion accuracy"
-    - name: "Affirm"
-      description: "Buy-now-pay-later messaging on PDP, cart, mini-cart, and PLP"
-
-technical_stack:
-  section_label: "Technical Stack"
-  section_title: "What I work with daily"
-  groups:
-    - name: "Shopify"
-      items:
-        - "Liquid Templating"
-        - "Shopify CLI"
-        - "REST & GraphQL APIs"
-        - "Theme Architecture"
-        - "Metafields & Metaobjects"
-        - "Checkout Customization"
-    - name: "Frontend"
-      items:
-        - "JavaScript (ES6+)"
-        - "HTML5 / CSS3"
-        - "AlpineJS"
-        - "Vue.js / React"
-        - "Responsive Design"
-        - "Performance Optimization"
-    - name: "Backend & Tools"
-      items:
-        - "Ruby on Rails"
-        - "Git / GitHub"
-        - "Structured Data / SEO"
-        - "Shopify App Development"
-        - "A/B Testing Templates"
-        - "Accessibility"
 
 about:
   section_label: "About"
