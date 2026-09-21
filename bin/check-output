@@ -51,6 +51,10 @@ grep -q 'Explore StoreAudit' "$o/index.html" || fail "StoreAudit project CTA mis
 grep -q 'Explore FieldsRaven' "$o/index.html" || fail "FieldsRaven project CTA missing"
 [ "$(grep -c '<blockquote class="text-gray-900 dark:text-gray-100">' "$o/index.html")" = "10" ] || fail "expected ten testimonial cards"
 grep -q "src='/images/'" "$o/index.html" && fail "review with no portrait rendered a broken image" || true
+ruby -e 'html = File.read(ARGV.fetch(0)); team = html[/<a\b[^>]*href="https:\/\/goodharbour\.ca\/contact\/\?type=team"[^>]*>(.*?)<\/a>/m, 1]; abort "FAIL: team CTA lacks Goodharbour destination cue" unless team&.include?("via Goodharbour")' "$o/index.html"
+grep -q 'Working with Karim has been a great experience' "$o/index.html" || fail "Ivona review opening missing"
+grep -q 'Would absolutely work with Karim again' "$o/index.html" || fail "Ivona review ending missing"
+grep -q 'Monte Design · Review excerpt' "$o/index.html" && fail "Ivona review is still labeled as an excerpt" || true
 # Enable with WI-20 (real icon files):
 # [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
 # [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"

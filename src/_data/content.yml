@@ -27,6 +27,7 @@ cta:
   secondary:
     type: handoff
     label: "Discuss a team role"
+    cue: "via Goodharbour"
     url: "https://goodharbour.ca/contact/?type=team"
     hint: "Send the type of work, technology, expected hours, duration and start date."
   band:
@@ -140,8 +141,8 @@ testimonials:
       quote: "Karim is easily one of the most collaborative and sharp Shopify developers I’ve worked with. He resolved countless existing issues on our company website with impressive speed and precision. What really sets him apart is his ability to look at the bigger picture—he didn't just fix code; he gave us invaluable insights across our broader digital strategies. Fast, solution-oriented, and strategic. Highly recommended!"
 
     - name: "Ivona Z."
-      role: "Monte Design · Review excerpt"
-      quote: "Always meets deadlines, communicates clearly, and writes efficient, well-structured code."
+      role: "Monte Design · Review, March 4, 2026"
+      quote: "Working with Karim has been a great experience. An exceptional Shopify developer who is dependable and highly professional. Always meets deadlines, communicates clearly, and writes efficient, well-structured code. What really stands out is his ability to think outside the box and offer creative solutions that elevate the project beyond expectations. A true asset to any team. Would absolutely work with Karim again."
 
     - name: "Mary-Kevin Stuart"
       role: "Entrepreneur - Shopify Store Owner"
