@@ -8,8 +8,9 @@ nav:
     href: about
 
 hero:
-  headline: "Senior Shopify Plus developer for themes and integrations"
-  subheading: "I'm Karim. If you're on Shopify Plus and your theme is fighting you, I can help. I've contributed to 20+ custom storefronts for brands like Timbuk2, UrbanStems, and Vuori at PIVOT, a Shopify Plus Agency Partner - custom theme builds, integrations, and the front-end features your theme can't do on its own."
+  label: "Victoria, BC · Remote · Pacific time"
+  headline: "Karim Tarek, senior Shopify developer"
+  subheading: "I build and improve Shopify stores and connect the systems behind them. I spent nearly three years at PIVOT, a Shopify Plus agency partner, contributing to more than 20 DTC storefronts. I also built FieldsRaven, a published Shopify app, and continue to maintain it."
   portrait_alt: "Portrait of Karim Tarek, Shopify developer in Victoria, BC"
 
 cta:
@@ -152,12 +153,12 @@ testimonials:
 
 about:
   section_label: "About"
-  section_title: "A bit more context"
+  section_title: "About Karim Tarek"
   paragraphs:
-    - "I'm Karim, a fullstack Shopify developer based in Victoria, BC. I've been building for the web for over 17 years, with the last 9 focused on Shopify. Most recently I spent nearly 3 years at PIVOT, a Shopify Plus Agency Partner, where I contributed to custom storefronts for 20+ DTC brands as part of small development teams."
-    - "I've also built and published [FieldsRaven](https://apps.shopify.com/fieldsraven), a Shopify app on the App Store that extends the Metafields API - so I understand the platform from the app side too, not just the theme side."
-    - "Before Shopify, I worked at the ALDO Group, worked on a high-traffic web app for Keurig's Canadian launch, and spent time at Doctors Without Borders managing their UAE web presence. I hold a B.Sc. in Computer Engineering and a Project Management certificate from McGill."
-    - "I'm remote-first and have been for years. I take pride in the work and I'm in it for the long game. Good work leads to repeat business, and that's exactly how I want to grow."
+    - "I'm Karim Tarek, a senior Shopify developer based in Victoria, BC. I have worked in web development for more than 17 years. Since 2017, I've contributed to dozens of Shopify stores through direct client projects and agency work. That includes nearly three years at PIVOT, a Shopify Plus agency partner, contributing to more than 20 DTC storefronts."
+    - "I also built and maintain [FieldsRaven](https://apps.shopify.com/fieldsraven), a published Shopify app."
+    - "Before Shopify, I worked at the ALDO Group, worked on a contest web app for Keurig's Canadian Rivo launch at Le Site in Montreal, and managed the UAE web presence for Doctors Without Borders. I hold a Project Management certificate from McGill and a B.Sc. in Computer Engineering."
+    - "I work remotely and have for years. Questions before recommendations. Clear tradeoffs: if an existing tool or a smaller change makes more sense, I'll say so. Early communication. Care with the handover."
   quote:
     body: Fast and flexible and dedicated to delivering work that fit our needs.
     name: Amy Boyle

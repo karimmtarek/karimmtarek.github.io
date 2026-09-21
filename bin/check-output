@@ -30,6 +30,11 @@ grep -q 'Selected Shopify Plus work at PIVOT' "$o/index.html" || fail "project h
 grep -q 'Recommendations from clients and colleagues' "$o/index.html" || fail "testimonial heading missing"
 [ "$(grep -o '<dd[^>]*>[^<]*' "$o/index.html" | wc -l | tr -d ' ')" = "3" ] || fail "proof strip must contain three items"
 [ -s "$o/images/karim-portrait-192.jpg" ] || fail "mobile portrait missing"
+grep -q '<title>Karim Tarek: Senior Shopify Developer in Victoria, BC</title>' "$o/index.html" || fail "identity title missing"
+grep -q '<h1[^>]*>Karim Tarek, senior Shopify developer</h1>' "$o/index.html" || fail "identity h1 missing"
+grep -qi 'fullstack\|fighting you\|last 9\|Vuori' "$o/index.html" && fail "superseded identity copy remains" || true
+grep -q 'About Karim Tarek' "$o/index.html" || fail "About identity heading missing"
+grep -q 'Pacific time' "$o/index.html" || fail "approved location line missing"
 # Enable with WI-20 (real icon files):
 # [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
 # [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"

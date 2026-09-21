@@ -5,7 +5,10 @@
 # in the templates via {{ site.metadata.myvariable }}.
 
 title: Karim Tarek
-tagline: Fullstack Shopify Plus Developer
+tagline: Senior Shopify Developer in Victoria, BC
+job_title: "Senior Shopify Developer"
+og_image:
+  alt: "Karim Tarek, senior Shopify developer in Victoria, BC"
 email: karim@karimtarek.com
 description: >-
   Senior Shopify developer in Victoria, BC. Contributed to more than 20 DTC storefronts at PIVOT, a Shopify Plus agency partner. Built FieldsRaven.
