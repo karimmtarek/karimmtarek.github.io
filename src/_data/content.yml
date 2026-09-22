@@ -21,12 +21,16 @@ cta:
   primary:
     type: handoff
     label: "Discuss Shopify work"
+    heading: "Shopify work"
+    card_label: "Discuss a project"
     cue: "via Goodharbour"
     url: "https://goodharbour.ca/contact/?type=commerce"
     hint: "Share the store URL, what needs to change, and the result you want. A short explanation is enough to start."
   secondary:
     type: handoff
     label: "Discuss a team role"
+    heading: "Team role"
+    card_label: "Discuss a role"
     cue: "via Goodharbour"
     url: "https://goodharbour.ca/contact/?type=team"
     hint: "Send the type of work, technology, expected hours, duration and start date."
