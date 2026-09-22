@@ -111,3 +111,25 @@ hr {
   margin: 3rem 0;
 }
 */
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+@media print {
+  @page { margin: 16mm; }
+  html { scroll-padding-top: 0; }
+  #site-nav { position: static !important; background: #fff !important; box-shadow: none !important; }
+  #site-nav nav > div { display: none !important; }
+  #mobile-menu { display: none !important; }
+  #header, footer .bg-gray-900 { background: #fff !important; box-shadow: none !important; }
+  #header *, footer .bg-gray-900 * { color: #111827 !important; }
+  svg[aria-hidden="true"] { display: none !important; }
+  article, figure, blockquote, dl > div { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
+  .print-header { display: block !important; }
+  #work, #own-work, #testimonials, #about, #contact { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+  #header { padding-top: 0 !important; padding-bottom: 1rem !important; min-height: 0 !important; }
+  #header > div, #about > div { padding-top: 0 !important; padding-bottom: 0 !important; }
+}

@@ -23,7 +23,7 @@
             <p>"<%= data.about.quote.body %>"</p>
           </blockquote>
           <figcaption class="mt-8 flex gap-x-4">
-            <img src='<%= relative_url "/images/#{data.about.quote.thumb}" %>' alt="<%= data.about.quote.name %> | <%= data.about.quote.title %>" class="mt-1 size-10 flex-none rounded-full bg-gray-50 dark:bg-gray-700" />
+            <img src='<%= relative_url "/images/#{data.about.quote.thumb}" %>' alt="<%= data.about.quote.name %> | <%= data.about.quote.title %>" width="40" height="40" loading="lazy" decoding="async" class="mt-1 size-10 flex-none rounded-full bg-gray-50 dark:bg-gray-700" />
             <div class="text-sm/6">
               <div class="font-semibold text-gray-900 dark:text-white"><%= data.about.quote.name %></div>
               <div class="text-gray-600 dark:text-gray-400"><%= data.about.quote.title %></div>

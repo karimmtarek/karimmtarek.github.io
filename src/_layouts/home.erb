@@ -2,6 +2,7 @@
 layout: default
 ---
 <%= render "schema", metadata: site.metadata %>
+<%= render "print_header", data: site.data.content %>
 <%= render "header-alt", data: site.data.content %>
 <%= render "projects", data: site.data.content %>
 <% if site.data.content.offer %>

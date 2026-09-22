@@ -3,10 +3,10 @@
 <!-- so `@tailwindplus/elements` is not needed at runtime. -->
 <% on_home = resource.data.layout == "home" %>
 <% anchor_prefix = on_home ? "" : "/" %>
-<header id="site-nav" data-solid="<%= on_home ? "false" : "true" %>" class="fixed inset-x-0 top-0 z-50 <%= on_home ? "bg-transparent" : "bg-gray-900 shadow-lg" %> transition-colors duration-300">
+<header id="site-nav" data-solid="<%= on_home ? "false" : "true" %>" class="fixed inset-x-0 top-0 z-50 bg-gray-900 shadow-lg transition-colors duration-300">
   <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
     <a href="<%= anchor_prefix %>#header" class="-m-1.5 rounded-md p-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-      <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" class="h-8 w-auto" />
+      <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" width="56" height="32" class="h-8 w-auto" />
     </a>
     <div class="flex items-center gap-x-4 lg:gap-x-10">
       <div class="hidden lg:flex lg:gap-x-10">
@@ -25,13 +25,12 @@
       </div>
     </div>
   </nav>
-  <el-dialog>
     <dialog id="mobile-menu" data-track-location="mobile-menu" aria-label="Main menu" class="backdrop:bg-transparent lg:hidden">
-      <div tabindex="0" class="fixed inset-0 focus:outline-none">
-        <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
+      <div class="fixed inset-0">
+        <div data-menu-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
           <div class="flex items-center justify-between">
             <a href="<%= anchor_prefix %>#header" class="-m-1.5 rounded-md p-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" class="h-8 w-auto" />
+              <img src='<%= relative_url "/images/karim-logo.svg" %>' alt="Karim Tarek" width="56" height="32" class="h-8 w-auto" />
             </a>
             <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-white">
               <span class="sr-only">Close menu</span>
@@ -52,10 +51,9 @@
               </div>
             </div>
           </div>
-        </el-dialog-panel>
+        </div>
       </div>
     </dialog>
-  </el-dialog>
 </header>
 
 <script>
@@ -74,7 +72,10 @@
         nav.classList.add('bg-transparent');
       }
     };
-    if (nav.dataset.solid !== 'true') window.addEventListener('scroll', onScroll, { passive: true });
+    if (nav.dataset.solid !== 'true') {
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
 
     // Invoker commands shim. Safari only shipped command/commandfor in 26.2 (Firefox 144, Chrome 135), so on
     // older versions the hamburger would do nothing and there would be no mobile
@@ -90,6 +91,10 @@
         });
       });
     }
+
+    mobileMenu.addEventListener('click', e => {
+      if (!e.target.closest('[data-menu-panel]')) mobileMenu.close();
+    });
 
     // Move focus to the section we scrolled to, so the keyboard tab order and the
     // screen reader cursor follow the page instead of staying on <body>.
