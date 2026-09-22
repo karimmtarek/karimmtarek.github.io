@@ -1,3 +1,5 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -5,33 +7,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-M4BZX8MB');</script>
 <!-- End Google Tag Manager -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<% resource_title = strip_html(strip_newlines(title)) %>
-<title><% if resource_title != "Index" %><%= resource_title %> | <%= metadata.title %><% else %><%= metadata.title %>: <%= metadata.tagline %><% end %></title>
-
-<meta name="description" content="<%= metadata.description %>" />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://karimtarek.com<%= relative_url '/' %>" />
-<meta property="og:title" content="<%= resource_title != 'Index' ? "#{resource_title} | #{metadata.title}" : "#{metadata.title}: #{metadata.tagline}" %>" />
-<meta property="og:description" content="<%= metadata.description %>" />
-<meta property="og:image" content="https://karimtarek.com<%= relative_url '/images/karim.jpg' %>" />
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="<%= resource_title != 'Index' ? "#{resource_title} | #{metadata.title}" : "#{metadata.title}: #{metadata.tagline}" %>" />
-<meta name="twitter:description" content="<%= metadata.description %>" />
-<meta name="twitter:image" content="https://karimtarek.com<%= relative_url '/images/karim.jpg' %>" />
-
-<!-- Canonical -->
-<% if resource.data.robots.to_s.include?("noindex") %>
+<%
+  is_home    = resource.relative_url == "/"
+  home_title = "#{metadata.title}: #{metadata.tagline}"
+  page_title = resource.data.seo_title.to_s != "" ? resource.data.seo_title : (is_home ? home_title : "#{strip_html(strip_newlines(title))} | #{metadata.title}")
+  page_desc  = resource.data.description.to_s != "" ? resource.data.description : metadata.description
+  page_url   = "#{metadata.origin}#{resource.relative_url}"
+  og_image   = "#{metadata.origin}#{metadata.og_image.path}"
+  noindex    = resource.data.robots.to_s.include?("noindex")
+%>
+<title><%= page_title %></title>
+<meta name="description" content="<%= page_desc %>" />
+<% if noindex %>
 <meta name="robots" content="noindex" />
 <% else %>
-<link rel="canonical" href="https://karimtarek.com<%= relative_url resource.relative_url %>" />
+<link rel="canonical" href="<%= page_url %>" />
 <% end %>
+
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="<%= metadata.title %>" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:url" content="<%= page_url %>" />
+<meta property="og:title" content="<%= page_title %>" />
+<meta property="og:description" content="<%= page_desc %>" />
+<meta property="og:image" content="<%= og_image %>" />
+<meta property="og:image:width" content="<%= metadata.og_image.width %>" />
+<meta property="og:image:height" content="<%= metadata.og_image.height %>" />
+<meta property="og:image:alt" content="<%= metadata.og_image.alt %>" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<%= page_title %>" />
+<meta name="twitter:description" content="<%= page_desc %>" />
+<meta name="twitter:image" content="<%= og_image %>" />
+<meta name="twitter:image:alt" content="<%= metadata.og_image.alt %>" />
 
 <link rel="stylesheet" href="<%= asset_path :css %>" />
 <script src="<%= asset_path :js %>" defer></script>

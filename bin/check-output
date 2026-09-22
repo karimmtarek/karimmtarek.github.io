@@ -55,8 +55,10 @@ ruby -e 'html = File.read(ARGV.fetch(0)); team = html[/<a\b[^>]*href="https:\/\/
 grep -q 'Working with Karim has been a great experience' "$o/index.html" || fail "Ivona review opening missing"
 grep -q 'Would absolutely work with Karim again' "$o/index.html" || fail "Ivona review ending missing"
 grep -q 'Monte Design · Review excerpt' "$o/index.html" && fail "Ivona review is still labeled as an excerpt" || true
-# Enable with WI-20 (real icon files):
-# [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
-# [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"
+[ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
+[ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"
+[ -f "$o/images/share-card.png" ] || fail "share card missing"
+grep -q 'og:image:width" content="1200"' "$o/index.html" || fail "share card dimensions not advertised"
+[ "$(grep -c 'og:url" content="https://karimtarek.com/"' "$o/index.html")" = "1" ] || fail "og:url wrong on the homepage"
 ruby -rjson -e 'h=File.read("output/index.html"); j=h[/<script type="application\/ld\+json">(.*?)<\/script>/m,1] or abort("FAIL: no JSON-LD"); g=JSON.parse(j.gsub("<\\/","</")); types=g.fetch("@graph").map { |n| n["@type"] }; abort("FAIL: JSON-LD graph incomplete: #{types.inspect}") unless types.sort == ["Person", "ProfilePage", "WebSite"]'
 echo "output checks passed"
