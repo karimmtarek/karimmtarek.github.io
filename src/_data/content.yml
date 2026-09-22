@@ -94,13 +94,35 @@ projects:
         - "Accessibility"
         - "Multi-store settings"
 
+  other:
+    - name: "Ecommerce operations backend"
+      category: "Rails backend"
+      subtitle: "An anonymized client project"
+      body: "I built a Rails backend for an ecommerce business that turned incoming order data into internal orders, customer records and workflows for different staff roles. It connected those workflows with Shopify customer data, shipping, tax, notifications and order status."
+      tags:
+        - "Ruby on Rails"
+        - "Shopify customer data"
+        - "Shipping and tax"
+        - "Notifications"
+
+  earlier:
+    - name: "Keurig Rivo Launch Campaign"
+      category: "Campaign build"
+      subtitle: "Contest web app at Le Site, an ecommerce agency in Montreal"
+      body: "For the Canadian launch of the Keurig Rivo espresso machine, I worked on a contest web app at Le Site in Montreal, delivered in three to four weeks from brief to launch. I also automated the campaign's email build process, cutting production time from eight hours to two using Middleman and the Google Docs API. This predates my Shopify focus, but it shows I can work on time-sensitive projects with tight deadlines."
+      tags:
+        - "Web Application"
+        - "Process Automation"
+        - "Middleman"
+        - "Google Docs API"
+
 beyond_client_work:
-  section_label: "Own products and earlier work"
-  section_title: "Products I built, and earlier campaign work"
-  section_description: "Two products I built and maintain—FieldsRaven and StoreAudit—plus an earlier campaign application."
+  section_label: "My own products"
+  section_title: "Built and maintained by me"
+  section_description: "Building my own products has meant working through the whole process: defining the idea, writing the application, releasing it and maintaining it afterward."
   projects:
     - name: "FieldsRaven"
-      subtitle: "Published Shopify app · Built and maintained by me"
+      subtitle: "A published Shopify app"
       category: "Own product"
       body: "FieldsRaven extends Shopify's Metafields API to the storefront through an app proxy, enabling merchants to collect data on the fly and personalize their theme - functionality Shopify doesn't expose natively. Built with Ruby on Rails, I handle the full lifecycle: ideation, architecture, development, deployment, App Store review, and merchant support. Having a live app gives me platform depth that's hard to get from client work alone - I understand the API constraints, the review process, and how merchants actually use extended functionality in the real world."
       url: "https://apps.shopify.com/fieldsraven"
@@ -113,7 +135,7 @@ beyond_client_work:
         - "Full Product Lifecycle"
 
     - name: "StoreAudit"
-      subtitle: "AI-readiness audit for Shopify stores · Built and maintained by me"
+      subtitle: "A Rails application for storefront audits and reports"
       category: "Own product"
       body: "StoreAudit is a Shopify AI-readiness audit I built and maintain in Ruby on Rails. It reads public storefront and catalog data, checks product content and structured data, and asks Claude, ChatGPT, and Gemini what they know about a brand. Merchants get scored findings tied to affected products and specific fixes, with a prioritized action plan available in the full audit."
       url: "https://ai.storeaudit.app/"
@@ -125,16 +147,6 @@ beyond_client_work:
         - "Product-level reports"
         - "Brand visibility"
 
-    - name: "Keurig Rivo Launch Campaign"
-      subtitle: "Contest Web App - Built at Le Site (E-commerce Agency, Montreal)"
-      category: "Campaign build"
-      body: "For the Canadian launch of the Keurig Rivo espresso machine, I worked on a contest web app at Le Site, an e-commerce agency in Montreal. The app was delivered in 3-4 weeks from brief to launch, attracted hundreds of thousands of visitors, and generated over 30,000 social shares. I also automated the campaign's email build process, cutting production time from 8 hours to 2 hours using Middleman and the Google Docs API. This predates my Shopify focus, but it shows I can work on high-traffic, time-sensitive projects with tight deadlines."
-      tags:
-        - "Web Application"
-        - "High Traffic"
-        - "30K+ Social Shares"
-        - "3-4 Week Turnaround"
-        - "Process Automation"
 
 testimonials:
   section_label: "Recommendations"
@@ -148,43 +160,39 @@ testimonials:
       role: "Monte Design · Review, March 4, 2026"
       quote: "Working with Karim has been a great experience. An exceptional Shopify developer who is dependable and highly professional. Always meets deadlines, communicates clearly, and writes efficient, well-structured code. What really stands out is his ability to think outside the box and offer creative solutions that elevate the project beyond expectations. A true asset to any team. Would absolutely work with Karim again."
 
-    - name: "Mary-Kevin Stuart"
-      role: "Entrepreneur - Shopify Store Owner"
-      quote: "I recently launched my Shopify store and I hired Karim to help with the development of the site. Karim did an amazing job with all of the projects I gave him and he exceeded all of my expectations. I was particularly impressed with Karim's communication, timeliness, receptivity to feedback, and attention to detail. He was very open to change and communicative about creative approaches we could take and the potential impact to the original estimate. I wholeheartedly recommend Karim."
-      thumb: "mary-kevin.jpg"
-
-    - name: "Jayme Thomson"
-      role: "Shopify Store Owner"
-      quote: "Twice I got told I would have to compromise on the changes I wanted for my website, until I contacted Karim. He implemented a challenging filter change to my delight. If there are more cost effective, efficient and better ways to do what you are trying to achieve he will tell you."
-      thumb: "jayme.svg"
-
-    - name: "Ericca Garrison"
-      role: "Shopify Store Owner"
-      quote: "Karim did an excellent job, he met and exceeded all expectations. He communicated clearly at each phase of the project."
-      thumb: "ericca.jpg"
-
-    - name: "James Corr"
-      role: "Growth Consultant - Product & GTM Expert"
-      quote: "Karim is a passionate developer that strives to better himself and improve his craft. He has helped OnlyGrowth with front-end development for Shopify sites. Karim is very responsive and communicates when he will be away or needs an extension. Unlike a lot of developers, Karim is also fairly good with estimating tasks and QA'ing his work prior to saying it is done."
-      thumb: "james.jpg"
-
     - name: "Matt Magi"
       role: "Co-Founder, Voltage New Media"
-      quote: "Karim worked with us as a contractor for ~2 years. I was always impressed with his punctuality, organization, problem solving and ability to think outside the box. He was never afraid to push back and make suggestions which would always benefit the projects we worked on together."
       thumb: "matt.jpg"
+      quote: "Karim worked with us as a contractor for ~2 years. I was always impressed with his punctuality, organization, problem solving and ability to think outside the box. He was never afraid to push back and make suggestions which would always benefit the projects we worked on together."
+
+    - name: "James Corr"
+      role: "Client · OnlyGrowth · LinkedIn, 2017"
+      thumb: "james.jpg"
+      quote: "Karim is a passionate developer that strives to better himself and improve his craft. He has helped OnlyGrowth with front-end development for Shopify sites. Karim is very responsive and communicates when he will be away or needs an extension. Unlike a lot of developers, Karim is also fairly good with estimating tasks and QA'ing his work prior to saying it is done."
+
+    - name: "Ysaël Pépin"
+      role: "Manager at ALDO Group · LinkedIn, 2015"
+      thumb: "ysael.jpg"
+      quote: "Not only he would deliver quality work on time, but also made sure he was improving his source code while keeping it readable and maintainable. His eye for design and his constant curiosity was also very appreciated by our team."
+
+    - name: "Mary-Kevin Stuart"
+      role: "Entrepreneur - Shopify Store Owner"
+      thumb: "mary-kevin.jpg"
+      quote: "I recently launched my Shopify store and I hired Karim to help with the development of the site. Karim did an amazing job with all of the projects I gave him and he exceeded all of my expectations. I was particularly impressed with Karim's communication, timeliness, receptivity to feedback, and attention to detail. He was very open to change and communicative about creative approaches we could take and the potential impact to the original estimate. I wholeheartedly recommend Karim."
 
     - name: "Johannes Gorset"
       role: "Client · Open-source project · LinkedIn, 2015"
       quote: "Karim made a valuable contribution to our open source recipes application to introduce authentication and seeds. We're delighted with both the feature and the way he implemented it; the code is beautiful, well-documented and well-tested."
 
-    - name: "Edda Ósk Ólafsdóttir"
-      role: "Teammate at Le Site · LinkedIn, 2016"
-      quote: "I worked briefly with Karim in the Front-end team at Le Site. He is innovative and resourceful and has excellent knowledge of both front- and backend development. He is eager to learn and improve his skills and would be a great asset for any team."
+    - name: "Jayme Thomson"
+      role: "Shopify Store Owner"
+      thumb: "jayme.svg"
+      quote: "Twice I got told I would have to compromise on the changes I wanted for my website, until I contacted Karim. He implemented a challenging filter change to my delight. If there are more cost effective, efficient and better ways to do what you are trying to achieve he will tell you."
 
-    - name: "Ysaël Pépin"
-      role: "IT Development Manager, ALDO Group"
-      quote: "Not only he would deliver quality work on time, but also made sure he was improving his source code while keeping it readable and maintainable. His eye for design and his constant curiosity was also very appreciated by our team."
-      thumb: "ysael.jpg"
+    - name: "Ericca Garrison"
+      role: "Shopify Store Owner"
+      thumb: "ericca.jpg"
+      quote: "Karim did an excellent job, he met and exceeded all expectations. He communicated clearly at each phase of the project."
 
 
 about:
@@ -195,10 +203,11 @@ about:
     - "I also built and maintain [FieldsRaven](https://apps.shopify.com/fieldsraven), a published Shopify app, and [StoreAudit](https://ai.storeaudit.app/), an AI-readiness audit for Shopify stores."
     - "Before Shopify, I worked at the ALDO Group, worked on a contest web app for Keurig's Canadian Rivo launch at Le Site in Montreal, and managed the UAE web presence for Doctors Without Borders. I hold a Project Management certificate from McGill and a B.Sc. in Computer Engineering."
     - "I work remotely and have for years. Questions before recommendations. Clear tradeoffs: if an existing tool or a smaller change makes more sense, I'll say so. Early communication. Care with the handover."
+
   quote:
     body: Fast and flexible and dedicated to delivering work that fit our needs.
     name: Amy Boyle
-    title: COO, June & January
+    title: COO, June & January, at the time of our work
     thumb: "amy.jpg"
 
 contact:

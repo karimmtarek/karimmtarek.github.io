@@ -14,7 +14,10 @@
               </blockquote>
               <figcaption class="mt-6 flex items-center gap-x-4">
                 <% if testimonial.thumb %>
-                  <img src='<%= relative_url "/images/#{testimonial.thumb}" %>' alt="<%= testimonial.name %> | <%= testimonial.role %>" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
+                  <img src='<%= relative_url "/images/#{testimonial.thumb}" %>' alt="<%= testimonial.name %> | <%= testimonial.role %>" width="40" height="40" loading="lazy" decoding="async" class="size-10 rounded-full bg-gray-50 dark:bg-gray-700" />
+                <% else %>
+                  <% initials = testimonial.name.split(/[\s]+/).reject { |w| w.match?(/\A[^[:alpha:]]/) }.first(2).map { |w| w[0] }.join %>
+                  <span aria-hidden="true" class="flex size-10 flex-none items-center justify-center rounded-full bg-linear-to-br from-[#776FFF] to-[#FF4694] text-sm font-bold text-white"><%= initials %></span>
                 <% end %>
                 <div>
                   <div class="font-semibold text-gray-900 dark:text-white"><%= testimonial.name %></div>

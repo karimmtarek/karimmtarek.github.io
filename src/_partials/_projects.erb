@@ -9,6 +9,22 @@
         <%= render "project", data: project %>
       <% end %>
     </div>
+    <% if data.projects.other %>
+      <h3 class="mt-16 text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Direct client work</h3>
+      <div class="mt-8 space-y-16">
+        <% data.projects.other.each do |project| %>
+          <%= render "project", data: project %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if data.projects.earlier %>
+      <h3 class="mt-16 text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Earlier work</h3>
+      <div class="mt-8 space-y-16">
+        <% data.projects.earlier.each do |project| %>
+          <%= render "project", data: project %>
+        <% end %>
+      </div>
+    <% end %>
     <div class="border-t border-gray-200 mt-10 sm:mt-16 dark:border-gray-700"></div>
   </div>
 
