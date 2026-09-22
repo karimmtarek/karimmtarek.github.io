@@ -6,13 +6,21 @@
       <span class="inline-flex items-center rounded-full bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300"><%= data.category %></span>
     </div>
     <span class="text-sm text-gray-500 dark:text-gray-400"><%= data.subtitle %></span>
-    <p class="mt-5 text-sm/6 text-gray-600 dark:text-gray-400"><%= data.body %></p>
+    <% if data.context %><p class="mt-5 text-base/7 text-gray-600 sm:text-sm/6 dark:text-gray-400"><%= data.context %></p><% end %>
+    <% if data.contributions %>
+      <p class="mt-4 text-sm/6 font-semibold text-gray-900 dark:text-white">My part</p>
+      <ul class="mt-2 list-disc pl-5 text-base/7 text-gray-600 sm:text-sm/6 dark:text-gray-400">
+        <% data.contributions.each do |c| %><li><%= c %></li><% end %>
+      </ul>
+    <% end %>
+    <% if data.body %><p class="mt-5 text-base/7 text-gray-600 sm:text-sm/6 dark:text-gray-400"><%= data.body %></p><% end %>
+    <% if data.duration %><p class="mt-3 text-sm/6 text-gray-500 dark:text-gray-400">Duration: <%= data.duration %></p><% end %>
     <% if data.url %>
       <a href="<%= data.url %>" class="mt-4 inline-flex text-sm font-semibold text-indigo-600 underline underline-offset-4 hover:text-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-indigo-400"><%= data.link_label %></a>
     <% end %>
     <div class="mt-5">
 
-      <% data.tags.each do |tag| %>
+      <% (data.stack || data.tags || []).each do |tag| %>
         <span class="inline-flex items-center rounded-full bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300"><%= tag %></span>
       <% end %>
     </div>

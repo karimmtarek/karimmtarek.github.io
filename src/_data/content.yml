@@ -52,47 +52,54 @@ projects:
   section_description: "At PIVOT, a Shopify Plus agency partner, I contributed to more than 20 DTC storefronts over nearly three years, working within existing codebases and small development teams. Here are four of them, with my part in each."
   list:
     - name: "Timbuk2"
-      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Bags and accessories"
-      body: "Timbuk2 is a bag brand with a loyal customer base and a complex product catalog. At PIVOT, I worked on their custom Shopify Plus storefront as part of a small dev team over 14 months. My contributions included custom Liquid templates, responsive front-end implementation, structured data schemas, and integration work across their marketing and analytics stack including Klevu search and Elevar tracking. I also worked on their help center, eco/sustainability pages, store locator, and corporate page system."
-      tags:
-        - "Liquid templates"
-        - "Klevu search"
-        - "Elevar scripts"
-        - "Structured data"
-        - "Help center"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
+      context: "Custom Shopify Plus storefront for a bag brand with a complex product catalog."
+      contributions:
+        - "Custom Liquid templates and responsive front-end work"
+        - "Integration work with Klevu search and Elevar tracking"
+        - "Structured data schemas"
+        - "Help center, sustainability pages, store locator and corporate page system"
+      stack: ["Liquid", "Klevu", "Elevar", "Structured data"]
+      duration: "14 months"
 
     - name: "UrbanStems"
-      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Gifting and subscriptions"
-      body: "UrbanStems is a modern flower and gifting brand with subscription complexity and seasonal campaigns. At PIVOT, I worked on their custom Shopify Plus storefront, contributing product tile systems for the PLP, Yotpo review widget integration and styling on the PDP, structured data implementation (Organization, Product, Article schemas), and landing pages for their rewards, referral, and corporate gifting programs. I also worked on subscription landing page templates and video integration for hero sections."
-      tags:
-        - "Yotpo reviews"
-        - "Structured data"
-        - "Subscription landing pages"
-        - "Rewards and referral pages"
-        - "Corporate gifting template"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
+      context: "Custom Shopify Plus storefront for a flower and gifting brand with subscriptions and seasonal campaigns."
+      contributions:
+        - "Product tile system for collection pages"
+        - "Yotpo review widget integration and styling on product pages"
+        - "Structured data: Organization, Product and Article"
+        - "Landing pages for the rewards, referral and corporate gifting programs"
+        - "Subscription landing page templates and video in hero sections"
+      stack: ["Yotpo", "Structured data", "Landing page templates"]
 
     - name: "X-Chair"
-      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Furniture and ergonomics"
-      body: "X-Chair sells ergonomic chairs with a product configurator that lets customers build custom combinations. At PIVOT, I was on this project for 18 months. My work included homepage styling to match the X-Chair design system, Affirm buy-now-pay-later messaging across PDP, cart, and PLP, Klevu integration for collection search and filtering, Yotpo for reviews and UGC, Elevar scripts for checkout tracking, and front-end builds for corporate pages, help centers, store locators, and warranty forms."
-      tags:
-        - "Affirm"
-        - "Klevu search"
-        - "Yotpo reviews"
-        - "Elevar scripts"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
+      context: "Custom Shopify Plus storefront for an ergonomic chair brand with a product configurator on the product page."
+      contributions:
+        - "Homepage styling to match the X-Chair design system"
+        - "Affirm pay-over-time messaging on product, cart and collection pages"
+        - "Klevu search and filtering on collections"
+        - "Yotpo reviews and user-generated content"
+        - "Elevar scripts for checkout tracking"
+        - "Corporate pages, help center, store locator and warranty forms"
+      stack: ["Affirm", "Klevu", "Yotpo", "Elevar"]
+      duration: "18 months"
 
     - name: "Celluma"
-      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
       category: "Health and wellness"
-      body: "Celluma sells LED light therapy devices to professional and consumer audiences, which calls for a content-heavy storefront with educational pages. At PIVOT, I contributed to this project as part of a small dev team. My work covered content page templates, blog filtering with author views, Rebuy cart integration for free gift logic and variant backorder messaging, Klaviyo modal and form integrations with GA event tracking, and accessibility improvements including focus traps, alt attributes, and translations. I also worked on theme settings to scope changes between their US and international stores."
-      tags:
-        - "Rebuy cart"
-        - "Klaviyo forms"
-        - "GA events"
-        - "Accessibility"
-        - "Multi-store settings"
+      subtitle: "My contribution at PIVOT, a Shopify Plus agency partner"
+      context: "Content-heavy Shopify Plus storefront for an LED light therapy brand with professional and consumer audiences."
+      contributions:
+        - "Content page templates and blog filtering with author views"
+        - "Rebuy cart integration: free gift logic and backorder messaging"
+        - "Klaviyo form and modal integrations with GA event tracking"
+        - "Accessibility fixes: focus traps, alt attributes and translations"
+        - "Theme settings scoped between the US and international stores"
+      stack: ["Rebuy", "Klaviyo forms", "GA events", "Accessibility", "Multi-store settings"]
 
   other:
     - name: "Ecommerce operations backend"
@@ -124,7 +131,7 @@ beyond_client_work:
     - name: "FieldsRaven"
       subtitle: "A published Shopify app"
       category: "Own product"
-      body: "FieldsRaven extends Shopify's Metafields API to the storefront through an app proxy, enabling merchants to collect data on the fly and personalize their theme - functionality Shopify doesn't expose natively. Built with Ruby on Rails, I handle the full lifecycle: ideation, architecture, development, deployment, App Store review, and merchant support. Having a live app gives me platform depth that's hard to get from client work alone - I understand the API constraints, the review process, and how merchants actually use extended functionality in the real world."
+      body: "FieldsRaven extends Shopify's Metafields API to the storefront through an app proxy, enabling merchants to collect data on the fly and personalize their theme. Shopify doesn't expose that natively. Built with Ruby on Rails, I handle the full lifecycle: ideation, architecture, development, deployment, App Store review, and merchant support. Having a live app gives me platform depth that's hard to get from client work alone. I understand the API constraints, the review process, and how merchants actually use extended functionality in the real world."
       url: "https://apps.shopify.com/fieldsraven"
       link_label: "Explore FieldsRaven"
       tags:
@@ -176,7 +183,7 @@ testimonials:
       quote: "Not only he would deliver quality work on time, but also made sure he was improving his source code while keeping it readable and maintainable. His eye for design and his constant curiosity was also very appreciated by our team."
 
     - name: "Mary-Kevin Stuart"
-      role: "Entrepreneur - Shopify Store Owner"
+      role: "Shopify store owner"
       thumb: "mary-kevin.jpg"
       quote: "I recently launched my Shopify store and I hired Karim to help with the development of the site. Karim did an amazing job with all of the projects I gave him and he exceeded all of my expectations. I was particularly impressed with Karim's communication, timeliness, receptivity to feedback, and attention to detail. He was very open to change and communicative about creative approaches we could take and the potential impact to the original estimate. I wholeheartedly recommend Karim."
 
