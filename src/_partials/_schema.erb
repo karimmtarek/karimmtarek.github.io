@@ -1,0 +1,26 @@
+<%
+  origin     = metadata.origin
+  person_id  = "#{origin}/#person"
+  page_title = "#{metadata.title}: #{metadata.tagline}"
+  person = {
+    "@type"   => "Person",
+    "@id"     => person_id,
+    "name"    => "Karim Tarek",
+    "url"     => "#{origin}/",
+    "image"   => { "@type" => "ImageObject", "url" => "#{origin}/images/karim.jpg", "width" => 2688, "height" => 1600 },
+    "address" => { "@type" => "PostalAddress", "addressLocality" => "Victoria", "addressRegion" => "BC", "addressCountry" => "CA" },
+    "worksFor" => { "@type" => "Organization", "@id" => "https://goodharbour.ca/#organization", "name" => "Goodharbour", "url" => "https://goodharbour.ca/" },
+    "sameAs"  => metadata.same_as.to_a
+  }
+  person["jobTitle"] = metadata.job_title if metadata.job_title.to_s != ""
+  person["email"]    = site.data.content.contact.email if site.data.content.contact.email.to_s.include?("@")
+  graph = {
+    "@context" => "https://schema.org",
+    "@graph" => [
+      { "@type" => "WebSite", "@id" => "#{origin}/#website", "url" => "#{origin}/", "name" => "Karim Tarek", "inLanguage" => "en", "publisher" => { "@id" => person_id } },
+      { "@type" => "ProfilePage", "@id" => "#{origin}/#profilepage", "url" => "#{origin}/", "name" => page_title, "isPartOf" => { "@id" => "#{origin}/#website" }, "inLanguage" => "en", "dateModified" => metadata.last_updated.to_s, "mainEntity" => { "@id" => person_id } },
+      person
+    ]
+  }
+%>
+<script type="application/ld+json"><%= raw JSON.generate(graph).gsub("</", "<\\/") %></script>

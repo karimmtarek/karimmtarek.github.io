@@ -4,6 +4,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.metadata.myvariable }}.
 
+origin: https://karimtarek.com
+same_as:
+  - https://www.linkedin.com/in/karimtarek
+  - https://github.com/karimmtarek
+  - https://goodharbour.ca/about/
+last_updated: "2026-09-22T00:00:00-07:00"
 title: Karim Tarek
 tagline: Senior Shopify Developer in Victoria, BC
 job_title: "Senior Shopify Developer"

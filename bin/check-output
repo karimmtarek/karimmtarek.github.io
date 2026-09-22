@@ -58,6 +58,5 @@ grep -q 'Monte Design · Review excerpt' "$o/index.html" && fail "Ivona review i
 # Enable with WI-20 (real icon files):
 # [ -s "$o/favicon.ico" ] || fail "favicon.ico is empty"
 # [ -f "$o/apple-touch-icon.png" ] || fail "apple-touch-icon.png missing"
-# Enable with WI-19 (JSON-LD present and parseable):
-# ruby -rjson -e 'h=File.read("output/index.html"); j=h[/<script type="application\/ld\+json">(.*?)<\/script>/m,1] or abort("FAIL: no JSON-LD"); JSON.parse(j.gsub("<\\/","</"))'
+ruby -rjson -e 'h=File.read("output/index.html"); j=h[/<script type="application\/ld\+json">(.*?)<\/script>/m,1] or abort("FAIL: no JSON-LD"); g=JSON.parse(j.gsub("<\\/","</")); types=g.fetch("@graph").map { |n| n["@type"] }; abort("FAIL: JSON-LD graph incomplete: #{types.inspect}") unless types.sort == ["Person", "ProfilePage", "WebSite"]'
 echo "output checks passed"
